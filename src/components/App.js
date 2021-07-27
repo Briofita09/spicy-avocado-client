@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "../routeComponents/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
+import ProtectedRoute from "../routeComponents/auth/PrivateRoute";
 
 import { AuthContextComponent } from "../contexts/authContext";
 import Home2 from "../routeComponents/Home2";
@@ -14,9 +15,9 @@ function App() {
       <AuthContextComponent>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home2} />
-          <Route exact path="/movies" component={Movies} />
-          <Route path="/auth" component={AuthRouter} />
+          <ProtectedRoute path="/auth" component={AuthRouter} />
+          <ProtectedRoute exact path="/home" component={Home2} />
+          <ProtectedRoute exact path="/movies" component={Movies} />
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>
