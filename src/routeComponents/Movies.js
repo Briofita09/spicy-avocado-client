@@ -1,25 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import api from "../apis/api";
+
+import NavBar from "./NavBar";
+
 
 function Movies() {
   return (
     <section>
       {" "}
-      <nav>
-        <h1>Spicy Avocado</h1>
-        <img />
-        <Link to="/">Home</Link>
-        <img />
-        <Link to="/">Minha Lista</Link>
-        <img />
-        <Link to="/">Pesquisar</Link>
-        <img />
-        <Link to="/">Minha Conta</Link>
-        <img />
-      </nav>
-      
+      <NavBar/>
+      <div>
+        <p>Populares:</p>
+        {/* carrossel */}
+      </div>
+      <div>
+        <Link>Ação</Link>
+        <Link>Aventura</Link>
+        <Link>Animação</Link>
+        <Link>Comédia</Link>
+        <Link>Documentário</Link>
+        <Link>Drama</Link>
+        <Link>Fantasia</Link>
+        <Link>Ficção Científica</Link>
+        <Link>Mistério</Link>
+        <Link>Música</Link>
+        <Link>Romance</Link>
+        <Link>Terror</Link>
+      </div>
     </section>
   );
 }
 
-export default Movies
+export default Movies;
