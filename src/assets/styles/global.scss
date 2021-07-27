@@ -1,0 +1,25 @@
+:root {
+  --orange: #ff541e;
+  --gray: #33303e;
+  --disabled: #c6c5ce;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px "Poppins", Arial, sans-serif;
+  color: #33303e;
+}
+
+input,
+textarea {
+  font-family: "Poppins";
+}
+
+button {
+  cursor: pointer;
+}
