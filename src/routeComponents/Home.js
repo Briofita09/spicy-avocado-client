@@ -3,19 +3,21 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="text-center">
-      <img
-        src="https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/84/original/logo-ironhack-blue.png"
-        alt="ironhack logo"
-      />
-      <h1>React IronPlate</h1>
-      <p>This is the homepage</p>
-      <div className="d-flex flex-column align-items-center">
+    <section className="text-center">
+      <nav>
+        <h1>Spicy Avocado</h1>
+        <img /> <Link to="/auth/login">Ja é cadastrado? Faça login aqui!</Link>
         <Link className="btn btn-lg btn-primary" to="/auth/signup">
-          Signup here!
+          Cadastre-se
         </Link>
-      </div>
-    </div>
+      </nav>
+      <h2>Só crítica APIMENTADA!</h2>
+      <nav>
+        <div><img/><p>Receba <strong>tips</strong> toda semana</p></div>
+        <div><img/><p>Crie suas <strong>Watch Lists!</strong></p></div>
+        <div><img/><p>Poste suas <strong>avaliações!</strong></p></div>
+      </nav>
+    </section>
   );
 }
 
