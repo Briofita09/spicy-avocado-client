@@ -31,13 +31,13 @@ function Home() {
         <div>
           <img src={TV} alt="TV" />
           <p>
-            Receba <strong>tips</strong> toda semana
+            Receba <strong>tips</strong> toda semana!
           </p>
         </div>
         <div>
           <img src={List} alt="List" />
           <p>
-            Crie suas <strong>Watch Lists!</strong>
+            Crie sua <strong>Watch List!</strong>
           </p>
         </div>
         <div>

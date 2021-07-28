@@ -5,7 +5,7 @@ import Home from "../routeComponents/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 
 import { AuthContextComponent } from "../contexts/authContext";
-import Home2 from "../routeComponents/Home2";
+import ContentTypeSelector from "../routeComponents/ContentTypeSelector";
 import Movies from "../routeComponents/Movies";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <AuthContextComponent>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home2} />
+          <Route exact path="/home" component={ContentTypeSelector} />
           <Route exact path="/movies" component={Movies} />
           <Route path="/auth" component={AuthRouter} />
         </Switch>
