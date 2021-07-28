@@ -1,28 +1,19 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../assets/styles/Home.module.scss";
 
-import Logo from "../assets/images/logos/logo.svg";
 import List from "../assets/images/cards-home/list.svg";
 import Star from "../assets/images/cards-home/star.svg";
 import TV from "../assets/images/cards-home/tv.svg";
 
+import Modal from "../components/Modal";
+import HeaderNoLogin from "../components/HeaderNoLogin";
+
 function Home() {
   return (
     <>
-      <header className={styles.headerHome}>
-        <img src={Logo} alt="Logo" />
-        <navbar>
-          <nav>
-            <Link to="/auth/login">Ja é cadastrado? Faça login aqui!</Link>
-          </nav>
-          <nav>
-            <Link to="/auth/signup">
-              <button type="button">Cadastre-se</button>
-            </Link>
-          </nav>
-        </navbar>
-      </header>
+      <HeaderNoLogin signupButtonRender={true} />
       <section className={styles.call}>
         <h1>
           Só crítica <span>APIMENTADA!</span>
