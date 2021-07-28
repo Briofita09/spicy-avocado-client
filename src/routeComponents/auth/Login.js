@@ -45,7 +45,7 @@ function Login(props) {
       <h1>Login</h1>
 
       <div>
-        <label htmlFor="signupFormEmail">E-mail Address</label>
+        <label htmlFor="signupFormEmail">Seu e-mail:</label>
         <input
           type="email"
           name="email"
@@ -57,7 +57,7 @@ function Login(props) {
       </div>
 
       <div>
-        <label htmlFor="signupFormPassword">Password</label>
+        <label htmlFor="signupFormPassword">Sua senha:</label>
         <input
           type="password"
           name="password"
@@ -69,10 +69,10 @@ function Login(props) {
       </div>
 
       <div>
-        <button type="submit">Login!</button>
+        <button type="submit">Fazer Login!</button>
 
         <Link to="/auth/signup">
-          Don't have an account? Click here to signup!
+          Ainda não tem uma conta? Clique aqui para se cadastrar!
         </Link>
       </div>
     </form>

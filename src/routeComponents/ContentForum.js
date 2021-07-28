@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import api from "../apis/api";
 
-import spiciAvocado from "../assets/images/logos/horizontal.svg";
+import spicyAvocado from "../assets/images/logos/horizontal.svg";
 import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
 import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
 import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
@@ -70,7 +70,7 @@ function ContentForum() {
   return (
     <div>
       <nav>
-        <img src={spiciAvocado} alt="spice avocado logo" />
+        <img src={spicyAvocado} alt="spice avocado logo" />
         <img src={homeIcon} alt="home icon" />
         <Link to="/">Home</Link>
         <img src={listIcon} alt="my list icon" />

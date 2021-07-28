@@ -1,36 +1,3 @@
-.headerHome {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  img {
-    width: 400px;
-    height: 90px;
-  }
-
-  navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    nav {
-      margin: 0 auto;
-      padding: 0 1rem;
-      text-decoration: underline;
-      button {
-        width: 355px;
-        height: 50px;
-        background-color: var(--orange-dark);
-        border-radius: 8px;
-        font-weight: 800;
-        font-size: 15px;
-        color: #fff;
-        padding: 0 32px;
-        border: 0;
-      }
-    }
-  }
-}
-
 .call {
   h1 {
     align-items: center;
