@@ -61,7 +61,7 @@ function MovieDescription() {
     <div>
       <section className="topo">
         <div>
-          <img src="`https://image.tmdb.org/t/p/w200/${poster_path}`" />
+          <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} />
         </div>
         <div>
           <h1>{this.original_title}</h1>
