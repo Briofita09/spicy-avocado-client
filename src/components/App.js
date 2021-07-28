@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "../routeComponents/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
@@ -18,7 +17,6 @@ function App() {
           <Route exact path="/home" component={ContentTypeSelector} />
           <Route exact path="/movies" component={Movies} />
           <Route path="/auth" component={AuthRouter} />
-
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>
