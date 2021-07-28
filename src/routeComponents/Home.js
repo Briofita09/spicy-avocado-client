@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "../assets/styles/Home.module.scss";
 
@@ -7,6 +8,8 @@ import List from "../assets/images/cards-home/list.svg";
 import Star from "../assets/images/cards-home/star.svg";
 import TV from "../assets/images/cards-home/tv.svg";
 
+import Modal from "../components/Modal";
+
 function Home() {
   return (
     <>
@@ -14,7 +17,7 @@ function Home() {
         <img src={Logo} alt="Logo" />
         <navbar>
           <nav>
-            <Link to="/auth/login">Ja é cadastrado? Faça login aqui!</Link>
+            <button type="button">Ja é cadastrado? Faça login aqui!</button>
           </nav>
           <nav>
             <Link to="/auth/signup">
