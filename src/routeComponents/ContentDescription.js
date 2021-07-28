@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import api from "../apis/api";
 import axios from "axios";
@@ -24,9 +24,7 @@ function MovieDescription() {
   //Link para renderizar o poster
   //`https://image.tmdb.org/t/p/w200/${poster_path}`
 
-  const [commentState, setCommentState] = useState({
-    comments: [],
-  });
+  const [commentState, setCommentState] = useState([]);
 
   const { contentType, contentId } = useParams();
 
@@ -55,16 +53,18 @@ function MovieDescription() {
       }
     }
     fetchMovie();
-  });
+  }, []);
 
   return (
     <div>
       <section className="topo">
         <div>
-          <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} />
+          <img
+            src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+          />
         </div>
         <div>
-          <h1>{this.original_title}</h1>
+          <h1>{tmdbState.original_title}</h1>
           <h1>{this.release_date}</h1>
         </div>
         <div>
@@ -94,12 +94,12 @@ function MovieDescription() {
           <div>
             <h1>Discussão:</h1>
             <ul>
-              {this.comments.map((comment) => {
+              {commentState.map((comment) => {
                 return (
                   <li>
-                    <h4>{this.comment.commentCreator.name}</h4>
-                    <p>{this.comment.title}</p>
-                    <span>{this.comment.comment}</span>
+                    <h4>{comment.commentCreator.name}</h4>
+                    <p>{comment.title}</p>
+                    <span>{comment.comment}</span>
                   </li>
                 );
               })}

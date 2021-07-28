@@ -19,7 +19,31 @@ function ContentForum() {
     comment: [],
   });
 
+  const [state, setState] = useState({
+    title: "",
+    comment: "",
+  });
+
   const { contentType, contentId } = useParams();
+
+  handleChange = (event) => {
+    setState(event.target.value);
+  };
+
+  handleSubmit = (event) => {
+    try {
+      event.preventDefault();
+
+      const response = await api.put(
+        `/${contentType}/${contentId}/add-comment`,
+        {
+          state,
+        }
+      );
+    } catch (err) {
+      console.error(err.response.data);
+    }
+  };
 
   useEffect(() => {
     async function fetchComments() {
@@ -31,7 +55,7 @@ function ContentForum() {
         setTmdbState(...tmdbResponse.data);
 
         const commentResponse = await api.get(
-          `/${contentType}/${contentId}/add-comment`
+          `/${contentType}/${contentId}/contentComments`
         );
 
         setOurState(...commentResponse.data);
@@ -68,7 +92,43 @@ function ContentForum() {
         </div>
       </section>
 
-      <section className="comments"></section>
+      <section className="comments">
+        <ul>
+          {this.comment.map((comment) => {
+            return (
+              <li>
+                <h4>{this.comment.commentCreator.name}</h4>
+                <p>{this.comment.title}</p>
+                <span>{this.comment.comment}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+      <hr />
+      <section className="newComment">
+        <form>
+          <label htmlFor="title">Titulo: </label>
+          <label
+            id="title"
+            type="text"
+            name="title"
+            value={state.title}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="comment">Comentario: </label>
+          <label
+            id="comment"
+            type="text"
+            name="comment"
+            value={state.title}
+            onChange={handleChange}
+          />
+
+          <button onSubmit={handleSubmit}>Publicar</button>
+        </form>
+      </section>
     </div>
   );
 }
