@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Logo from "../assets/images/logos/logo.svg";
 import styles from "../assets/styles/HeaderNoLogin.module.scss";
 
+import Modal from "../components/Modal";
+
 export default function HeaderNoLogin(props) {
   const signupButtonRender = props.signupButtonRender;
   return (
