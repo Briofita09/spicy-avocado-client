@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "../routeComponents/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
+import ProtectedRoute from "../routeComponents/auth/PrivateRoute";
 
 import { AuthContextComponent } from "../contexts/authContext";
 import ContentTypeSelector from "../routeComponents/ContentTypeSelector";
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/home" component={ContentTypeSelector} />
           <Route exact path="/movies" component={Movies} />
           <Route path="/auth" component={AuthRouter} />
+
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>
