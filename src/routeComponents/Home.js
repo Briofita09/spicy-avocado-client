@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/styles/Home.scss";
+import styles from "../assets/styles/Home.module.scss";
 
 import Logo from "../assets/images/logos/logo.svg";
 import List from "../assets/images/cards-home/list.svg";
@@ -10,7 +10,7 @@ import TV from "../assets/images/cards-home/tv.svg";
 function Home() {
   return (
     <>
-      <header>
+      <header className={styles.headerHome}>
         <img src={Logo} alt="Logo" />
         <navbar>
           <nav>
@@ -23,11 +23,12 @@ function Home() {
           </nav>
         </navbar>
       </header>
-
-      <h1>
-        Só crítica <span>APIMENTADA!</span>
-      </h1>
-      <section>
+      <section className={styles.call}>
+        <h1>
+          Só crítica <span>APIMENTADA!</span>
+        </h1>
+      </section>
+      <section className={styles.cardSection}>
         <div>
           <img src={TV} alt="TV" />
           <p>
