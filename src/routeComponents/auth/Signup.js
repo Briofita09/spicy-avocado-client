@@ -36,10 +36,10 @@ function Signup(props) {
   return (
     <>
       <HeaderNoLogin signupButtonRender={false} />
-      <h1 className={styles.pageTitle}>Signup!</h1>
-      <form onSubmit={handleSubmit} className={styles.signupForm}>
-        <div>
-          <label htmlFor="signupFormName">Name</label>
+      <h1 className={styles.pageTitle}>Cadastro</h1>
+      <div className={styles.signupCard}>
+        <form onSubmit={handleSubmit} className={styles.signupForm}>
+          <label htmlFor="signupFormName">Nome: </label>
           <input
             type="text"
             name="name"
@@ -48,10 +48,8 @@ function Signup(props) {
             error={errors.name}
             onChange={handleChange}
           />
-        </div>
 
-        <div>
-          <label htmlFor="signupFormEmail">E-mail Address</label>
+          <label htmlFor="signupFormEmail">E-mail: </label>
           <input
             type="email"
             name="email"
@@ -60,10 +58,8 @@ function Signup(props) {
             error={errors.email}
             onChange={handleChange}
           />
-        </div>
 
-        <div>
-          <label htmlFor="signupFormPassword">Password</label>
+          <label htmlFor="signupFormPassword">Senha: </label>
           <input
             type="password"
             name="password"
@@ -72,16 +68,14 @@ function Signup(props) {
             error={errors.password}
             onChange={handleChange}
           />
-        </div>
 
-        <div>
           <button type="submit">Signup!</button>
 
           <Link to="/auth/login">
-            Already have an account? Click here to login.
+            <p>Já possui uma conta? Faça login!</p>
           </Link>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 }
