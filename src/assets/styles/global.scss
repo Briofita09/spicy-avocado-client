@@ -1,7 +1,23 @@
 :root {
-  --orange: #ff541e;
-  --gray: #33303e;
-  --disabled: #c6c5ce;
+  --gray01: #34323e;
+  --gray02: #4e4b59;
+  --gray03: #5f5c6b;
+  --gray04: #7a7786;
+  --gray05: #8c8a97;
+  --gray06: #f6f6f8;
+
+  --red-dark: #de3961;
+  --red: #f64f77;
+  --red-light: #fc6f91;
+
+  --orange-dark: #f49f1f;
+  --orange: #f8ae3f;
+  --orange-light: #ffd569;
+
+  --primary-button-color: #33303e;
+  --disabled-button-color: #c6c5ce;
+  --checked-button-color: #3dcd7f;
+  --error-button-color: #f64f77;
 }
 
 * {

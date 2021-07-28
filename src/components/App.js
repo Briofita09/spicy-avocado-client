@@ -6,7 +6,7 @@ import AuthRouter from "../routeComponents/auth/AuthRouter";
 import ProtectedRoute from "../routeComponents/auth/PrivateRoute";
 
 import { AuthContextComponent } from "../contexts/authContext";
-import Home2 from "../routeComponents/Home2";
+import ContentTypeSelector from "../routeComponents/ContentTypeSelector";
 import Movies from "../routeComponents/Movies";
 
 function App() {
@@ -15,9 +15,10 @@ function App() {
       <AuthContextComponent>
         <Switch>
           <Route exact path="/" component={Home} />
-          <ProtectedRoute path="/auth" component={AuthRouter} />
-          <ProtectedRoute exact path="/home" component={Home2} />
-          <ProtectedRoute exact path="/movies" component={Movies} />
+          <Route exact path="/home" component={ContentTypeSelector} />
+          <Route exact path="/movies" component={Movies} />
+          <Route path="/auth" component={AuthRouter} />
+
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>
