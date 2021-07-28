@@ -7,7 +7,6 @@ import List from "../assets/images/cards-home/list.svg";
 import Star from "../assets/images/cards-home/star.svg";
 import TV from "../assets/images/cards-home/tv.svg";
 
-import Modal from "../components/Modal";
 import HeaderNoLogin from "../components/HeaderNoLogin";
 
 function Home() {
