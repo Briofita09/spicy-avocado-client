@@ -4,19 +4,26 @@
   bottom: 0;
   left: 0;
   right: 0;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modalContainer {
   background-color: #fff;
   border-radius: 4px;
-  max-width: 800px;
-  margin: 80px auto 0 auto;
-
-  button {
-    float: right;
-    background: unset;
-    border: unset;
-    margin: 12px;
-  }
+  max-width: 750px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem auto;
+}
+.closeButton {
+  float: right;
+  background: unset;
+  border: unset;
+  margin-right: 40rem;
+  padding: 0.5rem;
 }

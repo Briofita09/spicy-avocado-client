@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styles from "../assets/styles/Modal.module.scss";
 
+import closeIcon from "../assets/images/other-icons/back.png";
+
 const portalRoot = document.getElementById("portal-root");
 
 const Modal = (props) => {
@@ -14,8 +16,12 @@ const Modal = (props) => {
       }}
     >
       <div className={styles.modalContainer}>
-        <button type="button" onClick={() => props.setState(false)}>
-          X
+        <button
+          type="button"
+          onClick={() => props.setState(false)}
+          className={styles.closeButton}
+        >
+          <img src={closeIcon} alt="Back Icon" />
         </button>
         {props.children}
       </div>
