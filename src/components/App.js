@@ -14,8 +14,12 @@ function App() {
       <AuthContextComponent>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={ContentTypeSelector} />
-          <Route exact path="/movies" component={Movies} />
+          <Route
+            exact
+            path="/contentTypeSelector"
+            component={ContentTypeSelector}
+          />
+          <Route exact path="/:contentType" component={Movies} />
           <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>
