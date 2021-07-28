@@ -4,12 +4,11 @@ import api from "../apis/api";
 
 import NavBar from "./NavBar";
 
-
 function Movies() {
   return (
     <section>
       {" "}
-      <NavBar/>
+      <NavBar />
       <div>
         <p>Populares:</p>
         {/* carrossel */}

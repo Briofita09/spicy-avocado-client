@@ -6,7 +6,7 @@ import ProtectedRoute from "../routeComponents/auth/PrivateRoute";
 
 import { AuthContextComponent } from "../contexts/authContext";
 import ContentTypeSelector from "../routeComponents/ContentTypeSelector";
-import Movies from "../routeComponents/Movies";
+import PopularContent from "../routeComponents/PopularContent";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
             path="/contentTypeSelector"
             component={ContentTypeSelector}
           />
-          <Route exact path="/:contentType" component={Movies} />
+          <Route exact path="/:contentType" component={PopularContent} />
           <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>
