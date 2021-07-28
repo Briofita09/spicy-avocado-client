@@ -7,7 +7,6 @@ import spicyAvocado from "../assets/images/logos/horizontal.svg";
 import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
 import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
 import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
-import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
 
 function ContentForum() {
   const [tmdbState, setTmdbState] = useState({
