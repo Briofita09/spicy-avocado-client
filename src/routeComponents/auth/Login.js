@@ -9,12 +9,6 @@ function Login(props) {
   const authContext = useContext(AuthContext);
   const history = useHistory();
 
-  // if (authContext.token !== "") {
-  //   history.push("/contentTypeSelector");
-  // } else {
-  //   history.push("/");
-  // }
-
   const [state, setState] = useState({ password: "", email: "" });
   const [errors, setErrors] = useState({
     email: null,
