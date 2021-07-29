@@ -40,7 +40,7 @@ function App() {
           />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <ProtectedRoute exact path="/watchlist" component={Watchlist} />
-          <ProtectedRoute path="/auth" component={AuthRouter} />
+          <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>

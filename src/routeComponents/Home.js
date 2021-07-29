@@ -1,6 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import styles from "../assets/styles/Home.module.scss";
 
 import List from "../assets/images/cards-home/list.svg";
