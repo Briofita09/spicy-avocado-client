@@ -1,12 +1,20 @@
 h2 {
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin: 2rem;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .genresGrid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: start;
+  margin: 5rem;
 
   button {
     width: 355px;
@@ -21,4 +29,16 @@ h2 {
     margin-top: 2, 5rem;
     border: 0;
   }
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.divLine {
+  border: 1px solid #ddd;
+  margin: 1.5rem;
+  margin-top: 4rem;
 }
