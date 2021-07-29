@@ -39,6 +39,9 @@ export default function ContentTypeSelector() {
           </Link>
         </div>
       </section>
+      <Link to="/movie/3924/contentDescription">
+        <button>Vai pro fime</button>
+      </Link>
     </>
   );
 }

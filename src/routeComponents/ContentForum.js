@@ -20,7 +20,9 @@ function ContentForum() {
     release_date: "",
   });
 
-  const [ourState, setOurState] = useState([]);
+  const [ourState, setOurState] = useState({
+    comments: [],
+  });
 
   const [state, setState] = useState({
     title: "",
@@ -57,17 +59,21 @@ function ContentForum() {
 
         setTmdbState(...tmdbResponse.data);
 
+        console.log(tmdbResponse);
+
         const commentResponse = await api.get(
           `/${contentType}/${contentId}/contentComments`
         );
-
-        setOurState(...commentResponse.data);
+        console.log(commentResponse);
+        setOurState({ comments: commentResponse.data });
       } catch (err) {
         console.error(err);
       }
     }
     fetchComments();
-  });
+  }, []);
+
+  //console.log(ourState.comments);
 
   return (
     <div>
@@ -92,8 +98,8 @@ function ContentForum() {
 
         <div>
           <h1>Discussão: </h1>
-          <h1>{this.tmdbState.original_title}</h1>
-          <h1>{this.tmdbState.release_date}</h1>
+          <h1>{tmdbState.original_title}</h1>
+          <h1>{tmdbState.release_date}</h1>
         </div>
       </section>
 
