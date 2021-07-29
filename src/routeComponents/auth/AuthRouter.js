@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Signup from "./Signup";
-import Login from "./Login";
+import Home from "../Home";
 
 function AuthRouter(props) {
   return (
@@ -10,7 +10,7 @@ function AuthRouter(props) {
     <React.Fragment>
       <Switch>
         <Route path={`${props.match.path}/signup`} component={Signup} />
-        <Route path={`${props.match.path}/login`} component={Login} />
+        <Route path={`${props.match.path}/login`} component={Home} />
       </Switch>
     </React.Fragment>
   );

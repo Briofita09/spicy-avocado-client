@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "../assets/images/logos/logo.svg";
 import styles from "../assets/styles/HeaderNoLogin.module.scss";
 
@@ -10,6 +10,13 @@ import Login from "../routeComponents/auth/Login";
 export default function HeaderNoLogin(props) {
   const signupButtonRender = props.signupButtonRender;
   const [showModalState, setModalState] = useState(false);
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/auth/login");
+    setModalState(true);
+  };
+
   return (
     <>
       <Modal isOpen={showModalState} setState={setModalState}>
@@ -19,7 +26,7 @@ export default function HeaderNoLogin(props) {
         <img src={Logo} alt="Logo" />
 
         <nav>
-          <button type="button" onClick={() => setModalState(true)}>
+          <button type="button" onClick={handleClick}>
             <span>Ja é cadastrado? Faça login aqui!</span>
           </button>
 
