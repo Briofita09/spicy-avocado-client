@@ -1,65 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import style from "../assets/styles/PopularContent.module.scss";
 
 import NavBar from "../components/NavBar";
-import Slider from "../components/Slider";
+import Slider from "../components/PopularSlider";
 
-function Movies() {
+function Movies(props) {
+  const [genres, setGenres] = useState([]);
+
+  const { contentType } = useParams();
+
+  useEffect(() => {
+    async function fetchGenres() {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/genre/${contentType}/list?api_key=1dbc566a4812e099606bf66f83159d6e&language=pt-BR`
+      );
+      setGenres([...response.data.genres]);
+      console.log(response.data.genres);
+    }
+    fetchGenres();
+  }, []);
+
   return (
     <>
       <NavBar />
       <h2>Populares:</h2>
-      <Slider />
+      <Slider infos={contentType} />
       <section className={style.genresGrid}>
-        <Link>
-          {" "}
-          <button type="button">Ação</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Aventura</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Animação</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Comédia</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Documentário</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Drama</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Fantasia</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Ficção Científica</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Mistério</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Musical</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Romance</button>{" "}
-        </Link>
-        <Link>
-          {" "}
-          <button type="button">Terror</button>{" "}
-        </Link>
+        {genres.map((genre) => {
+          return (
+            <Link to={`/${props.params}/${genre.name}`}>
+              <button type="button">{genre.name}</button>{" "}
+            </Link>
+          );
+        })}
       </section>
     </>
   );
