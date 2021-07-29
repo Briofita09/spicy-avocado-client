@@ -23,6 +23,7 @@ function App() {
             path="/contentTypeSelector"
             component={ContentTypeSelector}
           />
+          <ProtectedRoute exact path="/search" component={PopularContent} />
           <ProtectedRoute
             exact
             path="/:contentType/popularContent"

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../apis/api";
 
-import spicyAvocado from "../assets/images/logos/horizontal.svg";
+import Logo from "../assets/images/logos/horizontal.svg";
 import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
 import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
 import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
@@ -28,7 +28,7 @@ function WatchList() {
   return (
     <div>
       <nav>
-        <img src={spicyAvocado} alt="spicy avocado logo" />
+        <img src={Logo} alt="Logo" />
         <img src={homeIcon} alt="home icon" />
         <Link to="/">Home</Link>
         <img src={listIcon} alt="my list icon" />
