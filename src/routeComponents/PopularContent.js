@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import style from "../assets/styles/PopularContent.module.scss";
 
 import NavBar from "../components/NavBar";
+import Slider from "../components/Slider";
 
 function Movies() {
   return (
     <>
       <NavBar />
-      <h2>
-        Populares:
-        {/* carrossel */}
-      </h2>
+      <h2>Populares:</h2>
+      <Slider />
       <section className={style.genresGrid}>
         <Link>
           {" "}
