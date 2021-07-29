@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styles from "../assets/styles/Modal.module.scss";
+import { ModalOverlay } from "../assets/styles/modalStyled";
 
 import closeIcon from "../assets/images/other-icons/back.png";
 
@@ -8,13 +9,7 @@ const portalRoot = document.getElementById("portal-root");
 
 const Modal = (props) => {
   return ReactDOM.createPortal(
-    <div
-      className={styles.overlay}
-      style={{
-        opacity: props.isOpen ? "1" : "0",
-        visibility: props.isOpen ? "visible" : "hidden",
-      }}
-    >
+    <ModalOverlay isOpen={props.isOpen}>
       <div className={styles.modalContainer}>
         <button
           type="button"
@@ -25,7 +20,7 @@ const Modal = (props) => {
         </button>
         {props.children}
       </div>
-    </div>,
+    </ModalOverlay>,
     portalRoot
   );
 };
