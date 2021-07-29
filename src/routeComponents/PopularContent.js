@@ -25,17 +25,20 @@ function Movies(props) {
   return (
     <>
       <NavBar />
-      <h2>Populares:</h2>
-      <Slider infos={contentType} />
-      <section className={style.genresGrid}>
-        {genres.map((genre) => {
-          return (
-            <Link to={`/${props.params}/${genre.name}`}>
-              <button type="button">{genre.name}</button>{" "}
-            </Link>
-          );
-        })}
-      </section>
+      <div className={style.pageContainer}>
+        <h2>Populares:</h2>
+        <Slider infos={contentType} />
+        <hr className={style.divLine} />
+        <section className={style.genresGrid}>
+          {genres.map((genre) => {
+            return (
+              <Link to={`/${props.params}/${genre.name}`}>
+                <button type="button">{genre.name}</button>{" "}
+              </Link>
+            );
+          })}
+        </section>
+      </div>
     </>
   );
 }
