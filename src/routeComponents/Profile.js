@@ -12,7 +12,6 @@ function Profile() {
   const [state, setState] = useState({
     name: "",
     email: "",
-    userComments: 0,
     creationDate: "",
   });
 
@@ -24,14 +23,16 @@ function Profile() {
     tvWatch: 0,
   });
 
-  const [commentState, setCommentState] = useState({ comments: 0 });
+  const [commentsState, setCommentState] = useState({
+    userComments: 0,
+  });
 
   useEffect(() => {
     async function fetchProfile() {
       try {
         const response = await api.get(`/profile`);
 
-        setState(...response.data);
+        setState({ ...response.data });
       } catch (err) {
         console.error(err);
       }
@@ -55,15 +56,16 @@ function Profile() {
       }
 
       try {
-        const commentResponse = await api.get("/profile/userComments");
-        let arrayComments = commentResponse.userComments;
-        setCommentState({ commentState: arrayComments.length });
+        const commentsResponse = await api.get("/profile/userComments");
+        setCommentState({ userComments: commentsResponse.data.length });
       } catch (err) {
         console.error(err);
       }
     }
     fetchProfile();
   }, []);
+
+  console.log(commentsState);
 
   return (
     <div>
@@ -110,7 +112,7 @@ function Profile() {
           <div>
             <h3>Comentarios feitos: </h3>
 
-            <p>{commentState.comments}</p>
+            <p>{commentsState.userComments}</p>
           </div>
         </div>
       </section>
