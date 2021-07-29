@@ -8,7 +8,7 @@ import axios from "axios";
 import like from "../assets/images/other-icons/like.png";
 import dislike from "../assets/images/other-icons/dislike.png";
 
-function MovieDescription() {
+function ContentDescription() {
   const [tmdbState, setTmdbState] = useState({
     poster_path: "",
     original_title: "",
@@ -107,8 +107,11 @@ function MovieDescription() {
           </div>
         </div>
       </section>
+      <Link to={"/contentForum"}>
+        <button>Comentar na discussão</button>
+      </Link>
     </div>
   );
 }
 
-export default MovieDescription;
+export default ContentDescription;

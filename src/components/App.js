@@ -7,6 +7,10 @@ import ProtectedRoute from "../routeComponents/auth/PrivateRoute";
 import { AuthContextComponent } from "../contexts/authContext";
 import ContentTypeSelector from "../routeComponents/ContentTypeSelector";
 import PopularContent from "../routeComponents/PopularContent";
+import ContentForum from "../routeComponents/contentForum";
+import ContentDescription from "../routeComponents/ContentDescription";
+import Profile from "../routeComponents/Profile";
+import Watchlist from "../routeComponents/Watchlist";
 
 function App() {
   return (
@@ -14,13 +18,34 @@ function App() {
       <AuthContextComponent>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route
+          <ProtectedRoute
             exact
             path="/contentTypeSelector"
             component={ContentTypeSelector}
           />
-          <Route exact path="/:contentType" component={PopularContent} />
-          <Route path="/auth" component={AuthRouter} />
+          <ProtectedRoute
+            exact
+            path="/:contentType"
+            component={PopularContent}
+          />
+          <ProtectedRoute
+            exact
+            path="/:contentType/pop"
+            component={PopularContent}
+          />
+          <ProtectedRoute
+            exact
+            path="/:contentType/:contentId"
+            component={ContentDescription}
+          />
+          <ProtectedRoute
+            exact
+            path="/:contentType/:contentId/comments"
+            component={ContentForum}
+          />
+          <ProtectedRoute exact path="/profile" component={Profile} />
+          <ProtectedRoute exact path="/watchlist" component={Watchlist} />
+          <ProtectedRoute path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>

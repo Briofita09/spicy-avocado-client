@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
 import api from "../apis/api";
 
 import spicyAvocado from "../assets/images/logos/horizontal.svg";
@@ -110,24 +113,22 @@ function ContentForum() {
       <section className="newComment">
         <form>
           <label htmlFor="title">Titulo: </label>
-          <label
-            id="title"
-            type="text"
-            name="title"
-            value={state.title}
+          <Editor
+            editorState={state.title}
+            toolbarClassName="toolbarClassName"
+            wrapperClassName="wrapperClassName"
+            editorClassName="editorClassName"
             onChange={handleChange}
           />
-
           <label htmlFor="comment">Comentario: </label>
-          <label
-            id="comment"
-            type="text"
-            name="comment"
-            value={state.title}
+          <Editor
+            editorState={state.comment}
+            toolbarClassName="toolbarClassName"
+            wrapperClassName="wrapperClassName"
+            editorClassName="editorClassName"
             onChange={handleChange}
           />
-
-          <button onSubmit={handleSubmit}>Publicar</button>
+          ;<button onSubmit={handleSubmit}>Publicar</button>
         </form>
       </section>
     </div>
