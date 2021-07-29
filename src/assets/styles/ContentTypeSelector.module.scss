@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.navlink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 400px;
+  height: 90px;
+  padding: 1rem;
+}

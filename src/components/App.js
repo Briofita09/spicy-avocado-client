@@ -25,17 +25,17 @@ function App() {
           />
           <ProtectedRoute
             exact
-            path="/:contentType"
-            component={ContentTypeSelector}
+            path="/:contentType/popularContent"
+            component={PopularContent}
           />
           <ProtectedRoute
             exact
-            path="/:contentType/:contentId"
+            path="/:contentType/:contentId/contentDescription"
             component={ContentDescription}
           />
           <ProtectedRoute
             exact
-            path="/:contentType/:contentId/comments"
+            path="/:contentType/:contentId/contentComments"
             component={ContentForum}
           />
           <ProtectedRoute exact path="/profile" component={Profile} />
