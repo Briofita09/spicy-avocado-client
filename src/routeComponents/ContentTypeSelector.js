@@ -13,21 +13,31 @@ export default function ContentTypeSelector() {
       <header>
         <img src={Logo} alt="Logo" className={style.logo} />
         <nav>
-          <Link to="/" className={style.navlink}>
+          <Link to="/watchlist" className={style.navlink}>
             <img src={listIcon} alt="Icone: Minha Lista" />
             <p>Minha Lista</p>
           </Link>
 
-          <Link to="/profile">
+          <Link to="/profile" className={style.navlink}>
             <img src={accIcon} alt="Icone: Perfil" />
             <p>Minha Conta</p>
           </Link>
         </nav>
       </header>
-      <section>
-        <h3>O que gostaria de pesquisar?</h3>
-        <Link to="/">Filmes</Link>
-        <Link to="/">Series</Link>
+      <section className={style.selectSection}>
+        <h1>O que gostaria de pesquisar?</h1>
+        <div>
+          <Link to="/movies/popularContent">
+            <button type="button">
+              <p>Filmes</p>
+            </button>
+          </Link>
+          <Link to="/tv/popularContent">
+            <button type="button">
+              <p>Series</p>
+            </button>
+          </Link>
+        </div>
       </section>
     </>
   );

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import NavBar from "./NavBar";
 import api from "../apis/api";
 import axios from "axios";
 
-import like from "../assets/images/other-icons/like.png";
-import dislike from "../assets/images/other-icons/dislike.png";
+// import like from "../assets/images/other-icons/like.png";
+// import dislike from "../assets/images/other-icons/dislike.png";
 
 function ContentDescription() {
   const [tmdbState, setTmdbState] = useState({

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import api from "../apis/api";
 
 import spiciAvocado from "../assets/images/logos/horizontal.svg";
@@ -26,6 +26,8 @@ function Profile() {
   const [commentsState, setCommentState] = useState({
     userComments: 0,
   });
+
+  const history = useHistory();
 
   useEffect(() => {
     async function fetchProfile() {
@@ -65,7 +67,10 @@ function Profile() {
     fetchProfile();
   }, []);
 
-  console.log(commentsState);
+  function handleSubmit() {
+    localStorage.clear();
+    history.push("/");
+  }
 
   return (
     <div>
@@ -114,6 +119,10 @@ function Profile() {
 
             <p>{commentsState.userComments}</p>
           </div>
+
+          <button type="submit" onClick={handleSubmit}>
+            Logout
+          </button>
         </div>
       </section>
     </div>

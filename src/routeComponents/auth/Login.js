@@ -6,13 +6,14 @@ import styles from "../../assets/styles/Login.module.scss";
 import { AuthContext } from "../../contexts/authContext";
 
 function Login(props) {
+  const authContext = useContext(AuthContext);
   const history = useHistory();
 
-  const authContext = useContext(AuthContext);
-
-  if (authContext.token !== "") {
-    history.push("/contentTypeSelector");
-  }
+  // if (authContext.token !== "") {
+  //   history.push("/contentTypeSelector");
+  // } else {
+  //   history.push("/");
+  // }
 
   const [state, setState] = useState({ password: "", email: "" });
   const [errors, setErrors] = useState({

@@ -23,6 +23,7 @@ function App() {
             path="/contentTypeSelector"
             component={ContentTypeSelector}
           />
+          <ProtectedRoute exact path="/search" component={PopularContent} />
           <ProtectedRoute
             exact
             path="/:contentType/popularContent"
@@ -40,7 +41,7 @@ function App() {
           />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <ProtectedRoute exact path="/watchlist" component={Watchlist} />
-          <ProtectedRoute path="/auth" component={AuthRouter} />
+          <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>
