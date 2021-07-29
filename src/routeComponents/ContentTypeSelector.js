@@ -13,7 +13,7 @@ export default function ContentTypeSelector() {
       <header>
         <img src={Logo} alt="Logo" className={style.logo} />
         <nav>
-          <Link to="/" className={style.navlink}>
+          <Link to="/watchlist" className={style.navlink}>
             <img src={listIcon} alt="Icone: Minha Lista" />
             <p>Minha Lista</p>
           </Link>

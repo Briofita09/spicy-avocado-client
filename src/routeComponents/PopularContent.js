@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import api from "../apis/api";
 
-import NavBar from "./NavBar";
+import NavBar from "../components/NavBar";
 
 function Movies() {
   return (

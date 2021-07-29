@@ -1,7 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import NavBar from "./NavBar";
+import NavBar from "../components/NavBar";
 
 import like from "../assets/images/other-icons/like.png";
 import dislike from "../assets/images/other-icons/dislike.png";
@@ -9,7 +7,7 @@ import dislike from "../assets/images/other-icons/dislike.png";
 function WatchedMovie() {
   return (
     <section>
-      <NavBar/>
+      <NavBar />
       <article>
         {/* movie.img */}
         {/* movie.title + movie.year */}
