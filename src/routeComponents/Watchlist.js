@@ -11,6 +11,7 @@ import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48
 function WatchList() {
   const [state, setState] = useState({
     WatchList: [],
+    backdrop_path: "",
   });
 
   useEffect(() => {
@@ -43,7 +44,18 @@ function WatchList() {
       <section className="minhaLista">
         <h1>Minha Lista: </h1>
 
-        <ul>{}</ul>
+        <ul>
+          {state.WatchList.map((content) => {
+            return (
+              <li>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200/${content.poster_path}`}
+                  alt={"content poster"}
+                />
+              </li>
+            );
+          })}
+        </ul>
       </section>
     </div>
   );
