@@ -61,31 +61,33 @@ function MovieDescription() {
     <div>
       <section className="topo">
         <div>
-          <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} />
+          <img
+            src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+          />
         </div>
         <div>
-          <h1>{this.original_title}</h1>
-          <h1>{this.release_date}</h1>
+          <h1>{tmdbState.original_title}</h1>
+          <h1>{tmdbState.release_date}</h1>
         </div>
         <div>
           <h3>Gênero: </h3>
           <ul>
-            {this.genres.map((genre) => {
-              return <li>{this.genre}</li>;
+            {tmdbState.genres.map((genre) => {
+              return <li>{genre.genre}</li>;
             })}
           </ul>
         </div>
         <div>
           <h3>Sinopse: </h3>
-          <p>{this.overview}</p>
+          <p>{tmdbState.overview}</p>
         </div>
         <div className="likebtn">
           <button>Bom</button>
-          <span>{this.likeCounter}</span>
+          <span>{likeState.likeCounter}</span>
         </div>
         <div className="dislikebtn">
           <button>Ruim</button>
-          <span>{this.dislikeCounter}</span>
+          <span>{likeState.dislikeCounter}</span>
         </div>
       </section>
       <hr />
@@ -94,12 +96,12 @@ function MovieDescription() {
           <div>
             <h1>Discussão:</h1>
             <ul>
-              {this.comments.map((comment) => {
+              {commentState.comments.map((comment) => {
                 return (
                   <li>
-                    <h4>{this.comment.commentCreator.name}</h4>
-                    <p>{this.comment.title}</p>
-                    <span>{this.comment.comment}</span>
+                    <h4>{comment.commentCreator.name}</h4>
+                    <p>{comment.title}</p>
+                    <span>{comment.comment}</span>
                   </li>
                 );
               })}
