@@ -26,12 +26,7 @@ function App() {
           <ProtectedRoute
             exact
             path="/:contentType"
-            component={PopularContent}
-          />
-          <ProtectedRoute
-            exact
-            path="/:contentType/pop"
-            component={PopularContent}
+            component={ContentTypeSelector}
           />
           <ProtectedRoute
             exact
