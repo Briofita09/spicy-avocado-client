@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import api from "../../apis/api";
+import styles from "../../assets/styles/Login.module.scss";
 
 import { AuthContext } from "../../contexts/authContext";
 
@@ -35,47 +36,44 @@ function Login(props) {
       setErrors({ password: "", email: "" });
       props.history.push("/contentTypeSelector");
     } catch (err) {
-      console.error(err.response);
-      setErrors({ ...err.response.data.errors });
+      console.error(err);
+      // setErrors({ ...err.response.data.errors });
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
+    <>
+      <div className={styles.loginCard}>
+        <h1 className={styles.pageTitle}>Login</h1>
+        <form className={styles.loginForm} onSubmit={handleSubmit}>
+          <label htmlFor="signupFormEmail">Seu e-mail:</label>
+          <input
+            type="email"
+            name="email"
+            id="signupFormEmail"
+            value={state.email}
+            error={errors.email}
+            onChange={handleChange}
+          />
 
-      <div>
-        <label htmlFor="signupFormEmail">Seu e-mail:</label>
-        <input
-          type="email"
-          name="email"
-          id="signupFormEmail"
-          value={state.email}
-          error={errors.email}
-          onChange={handleChange}
-        />
+          <label htmlFor="signupFormPassword">Sua senha:</label>
+          <input
+            type="password"
+            name="password"
+            id="signupFormPassword"
+            value={state.password}
+            error={errors.password}
+            onChange={handleChange}
+          />
+
+          <button type="submit">Fazer Login!</button>
+
+          <Link to="/auth/signup">
+            <p>Ainda não tem uma conta? Clique aqui para se cadastrar!</p>
+          </Link>
+        </form>
       </div>
-
-      <div>
-        <label htmlFor="signupFormPassword">Sua senha:</label>
-        <input
-          type="password"
-          name="password"
-          id="signupFormPassword"
-          value={state.password}
-          error={errors.password}
-          onChange={handleChange}
-        />
-      </div>
-
-      <div>
-        <button type="submit">Fazer Login!</button>
-
-        <Link to="/auth/signup">
-          Ainda não tem uma conta? Clique aqui para se cadastrar!
-        </Link>
-      </div>
-    </form>
+    </>
   );
 }
 
