@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
-import NavBar from "./NavBar";
+import { useParams } from "react-router-dom";
 import api from "../apis/api";
 import axios from "axios";
 
@@ -21,8 +19,6 @@ function MovieDescription() {
     likeCounter: 0,
     dislikeCounter: 0,
   });
-  //Link para renderizar o poster
-  //`https://image.tmdb.org/t/p/w200/${poster_path}`
 
   const [commentState, setCommentState] = useState({
     comments: [],
@@ -82,11 +78,16 @@ function MovieDescription() {
           <p>{tmdbState.overview}</p>
         </div>
         <div className="likebtn">
-          <button>Bom</button>
+          <button>
+            <img src={like} />
+          </button>
           <span>{likeState.likeCounter}</span>
         </div>
         <div className="dislikebtn">
-          <button>Ruim</button>
+          <button>
+            {" "}
+            <img src={dislike} />{" "}
+          </button>
           <span>{likeState.dislikeCounter}</span>
         </div>
       </section>
@@ -114,3 +115,6 @@ function MovieDescription() {
 }
 
 export default MovieDescription;
+
+//Link para renderizar o poster
+//`https://image.tmdb.org/t/p/w200/${poster_path}`
