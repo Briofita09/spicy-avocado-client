@@ -20,7 +20,9 @@ function ContentForum() {
     release_date: "",
   });
 
-  const [ourState, setOurState] = useState([]);
+  const [ourState, setOurState] = useState({
+    comments: [],
+  });
 
   const [state, setState] = useState({
     title: "",
@@ -55,20 +57,26 @@ function ContentForum() {
           `https://api.themoviedb.org/3/${contentType}/${contentId}?api_key=1dbc566a4812e099606bf66f83159d6e&language=pt-BR`
         );
 
-        setTmdbState(...tmdbResponse.data);
+        setTmdbState({
+          poster_path: tmdbResponse.data.poster_path,
+          original_title: tmdbResponse.data.original_title,
+          release_date: tmdbResponse.data.release_date,
+        });
+        console.log(contentType, contentId);
+
+        console.log(tmdbResponse);
 
         const commentResponse = await api.get(
           `/${contentType}/${contentId}/contentComments`
         );
-
-        setOurState(...commentResponse.data);
+        console.log(commentResponse);
+        setOurState({ comments: [...commentResponse.data] });
       } catch (err) {
         console.error(err);
       }
     }
     fetchComments();
-  });
-
+  }, [contentType, contentId]);
   return (
     <div>
       <nav>
@@ -80,7 +88,7 @@ function ContentForum() {
         <img src={searchIcon} alt="search icon" />
         <Link to="/">Pesquisar</Link>
         <img src={accIcon} alt="my account icon" />
-        <Link to="/">Minha Conta</Link>
+        <Link to="/profile">Minha Conta</Link>
       </nav>
 
       <section className="main">
@@ -92,14 +100,14 @@ function ContentForum() {
 
         <div>
           <h1>Discussão: </h1>
-          <h1>{this.tmdbState.original_title}</h1>
-          <h1>{this.tmdbState.release_date}</h1>
+          <h1>{tmdbState.original_title}</h1>
+          <h1>{new Date(tmdbState.release_date).getFullYear()}</h1>
         </div>
       </section>
 
       <section className="comments">
         <ul>
-          {ourState.comment.map((comment) => {
+          {ourState.comments.map((comment) => {
             return (
               <li>
                 <h4>{comment.commentCreator.name}</h4>

@@ -94,7 +94,10 @@ function Profile() {
         <div>
           <h1>{state.name}</h1>
 
-          <p>É um abacate apimentado desde: {state.creationDate}</p>
+          <p>
+            É um abacate apimentado desde:{" "}
+            {new Date(state.creationDate).getFullYear()}
+          </p>
 
           <div>
             <h3>Email: </h3>

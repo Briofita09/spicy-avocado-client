@@ -22,7 +22,9 @@ function ContentDescription() {
   //Link para renderizar o poster
   //`https://image.tmdb.org/t/p/w200/${poster_path}`
 
-  const [commentState, setCommentState] = useState([]);
+  const [commentState, setCommentState] = useState({
+    comments: [],
+  });
 
   const { contentType, contentId } = useParams();
 
@@ -32,7 +34,6 @@ function ContentDescription() {
         const tmdbResponse = await axios.get(
           `https://api.themoviedb.org/3/${contentType}/${contentId}?api_key=1dbc566a4812e099606bf66f83159d6e&language=pt-BR`
         );
-
         setTmdbState({ ...tmdbResponse.data });
 
         const likeResponse = await api.get(
@@ -44,14 +45,16 @@ function ContentDescription() {
         const commentResponse = await api.get(
           `/${contentType}/${contentId}/contentComments`
         );
-
-        setCommentState({ ...commentResponse.data });
+        console.log(commentResponse);
+        setCommentState({ comments: commentResponse.data });
       } catch (err) {
         console.error(err);
       }
     }
     fetchMovie();
   }, []);
+
+  console.log(commentState.comments);
 
   return (
     <div>
@@ -69,7 +72,7 @@ function ContentDescription() {
           <h3>Gênero: </h3>
           <ul>
             {tmdbState.genres.map((genre) => {
-              return <li>{this.genre}</li>;
+              return <li>{genre.genre}</li>;
             })}
           </ul>
         </div>
@@ -92,7 +95,7 @@ function ContentDescription() {
           <div>
             <h1>Discussão:</h1>
             <ul>
-              {commentState.map((comment) => {
+              {commentState.comments.map((comment) => {
                 return (
                   <li>
                     <h4>{comment.commentCreator.name}</h4>
@@ -105,7 +108,7 @@ function ContentDescription() {
           </div>
         </div>
       </section>
-      <Link to={"/contentForum"}>
+      <Link to={`/${contentType}/${contentId}/contentComments`}>
         <button>Comentar na discussão</button>
       </Link>
     </div>
