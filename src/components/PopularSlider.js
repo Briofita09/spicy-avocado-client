@@ -10,12 +10,13 @@ export default class SimpleSlider extends Component {
   };
   componentDidMount = async () => {
     const responsive = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=1dbc566a4812e099606bf66f83159d6e&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
+      `https://api.themoviedb.org/3/discover/${this.props.infos}?api_key=1dbc566a4812e099606bf66f83159d6e&language=pt-BR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
     );
     this.setState({ contentData: [...responsive.data.results] });
   };
 
   render() {
+    console.log(this.props);
     const settings = {
       dots: true,
       infinite: false,
@@ -56,7 +57,9 @@ export default class SimpleSlider extends Component {
           {this.state.contentData.map((content) => {
             return (
               <div>
-                <Link to={`/${this.props.params}/${content.id}`}>
+                <Link
+                  to={`/${this.props.infos}/${content.id}/contentDescription`}
+                >
                   <figure>
                     <img
                       src={`https://image.tmdb.org/t/p/w200/${content.poster_path}`}
