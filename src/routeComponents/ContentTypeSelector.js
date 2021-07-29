@@ -8,7 +8,7 @@ import Logo from "../assets/images/logos/horizontal.svg";
 
 export default function ContentTypeSelector() {
   return (
-    <section>
+    <>
       <nav>
         <img src={Logo} alt="Logo" />
         <Link to="/">
@@ -20,9 +20,11 @@ export default function ContentTypeSelector() {
           Minha Conta
         </Link>
       </nav>
-      <h3>O que gostaria de pesquisar?</h3>
-      <Link to="/">Filmes</Link>
-      <Link to="/">Series</Link>
-    </section>
+      <section>
+        <h3>O que gostaria de pesquisar?</h3>
+        <Link to="/">Filmes</Link>
+        <Link to="/">Series</Link>
+      </section>
+    </>
   );
 }

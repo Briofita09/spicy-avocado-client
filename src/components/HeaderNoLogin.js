@@ -17,20 +17,18 @@ export default function HeaderNoLogin(props) {
       </Modal>
       <header className={styles.headerHome}>
         <img src={Logo} alt="Logo" />
-        <navbar>
-          <nav>
-            <button type="button" onClick={() => setModalState(true)}>
-              Ja é cadastrado? Faça login aqui!
-            </button>
-          </nav>
+
+        <nav>
+          <button type="button" onClick={() => setModalState(true)}>
+            <span>Ja é cadastrado? Faça login aqui!</span>
+          </button>
+
           {Boolean(signupButtonRender) && (
-            <nav>
-              <Link to="/auth/signup">
-                <button type="button">Cadastre-se!</button>
-              </Link>
-            </nav>
+            <Link to="/auth/signup">
+              <button type="button">Cadastre-se!</button>
+            </Link>
           )}
-        </navbar>
+        </nav>
       </header>
     </>
   );
