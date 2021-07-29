@@ -1,32 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import style from "../assets/styles/PopularContent.module.scss";
 
 import NavBar from "../components/NavBar";
+import Slider from "../components/Slider";
 
 function Movies() {
   return (
-    <section>
-      {" "}
+    <>
       <NavBar />
-      <div>
-        <p>Populares:</p>
-        {/* carrossel */}
-      </div>
-      <div>
-        <Link>Ação</Link>
-        <Link>Aventura</Link>
-        <Link>Animação</Link>
-        <Link>Comédia</Link>
-        <Link>Documentário</Link>
-        <Link>Drama</Link>
-        <Link>Fantasia</Link>
-        <Link>Ficção Científica</Link>
-        <Link>Mistério</Link>
-        <Link>Música</Link>
-        <Link>Romance</Link>
-        <Link>Terror</Link>
-      </div>
-    </section>
+      <h2>Populares:</h2>
+      <Slider />
+      <section className={style.genresGrid}>
+        <Link>
+          {" "}
+          <button type="button">Ação</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Aventura</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Animação</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Comédia</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Documentário</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Drama</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Fantasia</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Ficção Científica</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Mistério</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Musical</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Romance</button>{" "}
+        </Link>
+        <Link>
+          {" "}
+          <button type="button">Terror</button>{" "}
+        </Link>
+      </section>
+    </>
   );
 }
 

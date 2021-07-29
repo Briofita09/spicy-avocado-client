@@ -27,12 +27,12 @@ export default function ContentTypeSelector() {
       <section className={style.selectSection}>
         <h1>O que gostaria de pesquisar?</h1>
         <div>
-          <Link to="/movies">
+          <Link to="/movies/popularContent">
             <button type="button">
               <p>Filmes</p>
             </button>
           </Link>
-          <Link to="/tv">
+          <Link to="/tv/popularContent">
             <button type="button">
               <p>Series</p>
             </button>

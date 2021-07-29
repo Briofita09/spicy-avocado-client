@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import style from "../assets/styles/Navbar.module.scss";
 
 import Logo from "../assets/images/logos/horizontal.svg";
 import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
@@ -12,20 +13,20 @@ function NavBar() {
     <header>
       <img src={Logo} alt="Logo" />
       <nav>
-        <Link to="/contentTypeSelector">
-          <img src={homeIcon} alt="" />
+        <Link to="/contentTypeSelector" className={style.navlink}>
+          <img src={homeIcon} alt="Home Icon" />
           <p>Home</p>
         </Link>
-        <Link to="/watchlist">
-          <img src={listIcon} alt="" />
+        <Link to="/watchlist" className={style.navlink}>
+          <img src={listIcon} alt="List Icon" />
           <p>Minha Lista</p>
         </Link>
-        <Link to="/search">
-          <img src={searchIcon} alt="" />
+        <Link to="/search" className={style.navlink}>
+          <img src={searchIcon} alt="Search Icon" />
           <p>Pesquisar</p>
         </Link>
-        <Link to="/profile">
-          <img src={accIcon} alt="" />
+        <Link to="/profile" className={style.navlink}>
+          <img src={accIcon} alt="Profile Icon" />
           <p>Minha Conta</p>
         </Link>
       </nav>

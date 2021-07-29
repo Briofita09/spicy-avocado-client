@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.navlink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin-right: 30px;
+  text-decoration: none;
+  p {
+    padding: 2px;
+  }
+}
