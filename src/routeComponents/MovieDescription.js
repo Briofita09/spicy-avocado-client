@@ -24,7 +24,9 @@ function MovieDescription() {
   //Link para renderizar o poster
   //`https://image.tmdb.org/t/p/w200/${poster_path}`
 
-  const [commentState, setCommentState] = useState([]);
+  const [commentState, setCommentState] = useState({
+    comments: [],
+  });
 
   const { contentType, contentId } = useParams();
 
@@ -53,39 +55,37 @@ function MovieDescription() {
       }
     }
     fetchMovie();
-  }, []);
+  });
 
   return (
     <div>
       <section className="topo">
         <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
-          />
+          <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} />
         </div>
         <div>
-          <h1>{tmdbState.original_title}</h1>
-          <h1>{tmdbState.release_date}</h1>
+          <h1>{this.original_title}</h1>
+          <h1>{this.release_date}</h1>
         </div>
         <div>
           <h3>Gênero: </h3>
           <ul>
-            {tmdbState.genres.map((genre) => {
+            {this.genres.map((genre) => {
               return <li>{this.genre}</li>;
             })}
           </ul>
         </div>
         <div>
           <h3>Sinopse: </h3>
-          <p>{tmdbState.overview}</p>
+          <p>{this.overview}</p>
         </div>
         <div className="likebtn">
           <button>Bom</button>
-          <span>{likeState.likeCounter}</span>
+          <span>{this.likeCounter}</span>
         </div>
         <div className="dislikebtn">
           <button>Ruim</button>
-          <span>{likeState.dislikeCounter}</span>
+          <span>{this.dislikeCounter}</span>
         </div>
       </section>
       <hr />
@@ -94,12 +94,12 @@ function MovieDescription() {
           <div>
             <h1>Discussão:</h1>
             <ul>
-              {commentState.map((comment) => {
+              {this.comments.map((comment) => {
                 return (
                   <li>
-                    <h4>{comment.commentCreator.name}</h4>
-                    <p>{comment.title}</p>
-                    <span>{comment.comment}</span>
+                    <h4>{this.comment.commentCreator.name}</h4>
+                    <p>{this.comment.title}</p>
+                    <span>{this.comment.comment}</span>
                   </li>
                 );
               })}

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import api from "../apis/api";
 
 import spicyAvocado from "../assets/images/logos/horizontal.svg";
 import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
 import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
 import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
+import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
 
 function ContentForum() {
   const [tmdbState, setTmdbState] = useState({
@@ -15,9 +16,7 @@ function ContentForum() {
     release_date: "",
   });
 
-  const [ourState, setOurState] = useState({
-    comment: [],
-  });
+  const [ourState, setOurState] = useState([]);
 
   const [state, setState] = useState({
     title: "",
@@ -26,11 +25,11 @@ function ContentForum() {
 
   const { contentType, contentId } = useParams();
 
-  handleChange = (event) => {
+  function handleChange(event) {
     setState(event.target.value);
-  };
+  }
 
-  handleSubmit = (event) => {
+  async function handleSubmit(event) {
     try {
       event.preventDefault();
 
@@ -43,7 +42,7 @@ function ContentForum() {
     } catch (err) {
       console.error(err.response.data);
     }
-  };
+  }
 
   useEffect(() => {
     async function fetchComments() {
@@ -82,7 +81,9 @@ function ContentForum() {
 
       <section className="main">
         <div>
-          <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} />
+          <img
+            src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+          />
         </div>
 
         <div>
@@ -94,12 +95,12 @@ function ContentForum() {
 
       <section className="comments">
         <ul>
-          {this.comment.map((comment) => {
+          {ourState.comment.map((comment) => {
             return (
               <li>
-                <h4>{this.comment.commentCreator.name}</h4>
-                <p>{this.comment.title}</p>
-                <span>{this.comment.comment}</span>
+                <h4>{comment.commentCreator.name}</h4>
+                <p>{comment.title}</p>
+                <span>{comment.comment}</span>
               </li>
             );
           })}
