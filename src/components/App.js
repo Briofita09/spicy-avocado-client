@@ -7,7 +7,7 @@ import ProtectedRoute from "../routeComponents/auth/PrivateRoute";
 import { AuthContextComponent } from "../contexts/authContext";
 import ContentTypeSelector from "../routeComponents/ContentTypeSelector";
 import PopularContent from "../routeComponents/PopularContent";
-import ContentForum from "../routeComponents/contentForum";
+import ContentForum from "../routeComponents/ContentForum";
 import ContentDescription from "../routeComponents/ContentDescription";
 import Profile from "../routeComponents/Profile";
 import Watchlist from "../routeComponents/Watchlist";

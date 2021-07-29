@@ -2,23 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../apis/api";
 
-import spiciAvocado from "../assets/images/logos/horizontal.svg";
+import spicyAvocado from "../assets/images/logos/horizontal.svg";
 import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
 import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
 import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
 import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
 
 function WatchList() {
-  const [state, setState] = useState({
-    WatchList: [],
-    backdrop_path: "",
-  });
+  const [watchList, setWatchList] = useState([]);
 
   useEffect(() => {
     async function fetchWatchList() {
       try {
         const response = await api.get("/watchlist");
-        setState(([state.WatchList] = [...response.data]));
+        setWatchList([...response.data]);
 
         //let watchListArr = response.data;
       } catch (err) {
@@ -26,12 +23,12 @@ function WatchList() {
       }
     }
     fetchWatchList();
-  });
+  }, []);
 
   return (
     <div>
       <nav>
-        <img src={spiciAvocado} alt="spice avocado logo" />
+        <img src={spicyAvocado} alt="spicy avocado logo" />
         <img src={homeIcon} alt="home icon" />
         <Link to="/">Home</Link>
         <img src={listIcon} alt="my list icon" />
@@ -45,7 +42,7 @@ function WatchList() {
         <h1>Minha Lista: </h1>
 
         <ul>
-          {state.WatchList.map((content) => {
+          {watchList.map((content) => {
             return (
               <li>
                 <img
@@ -61,4 +58,4 @@ function WatchList() {
   );
 }
 
-export default WatchList();
+export default WatchList;
