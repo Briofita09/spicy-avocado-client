@@ -22,7 +22,9 @@ function WatchList() {
 
   return (
     <div>
+
       <NavBar />
+
       <section className="minhaLista">
         <h1>Minha Lista: </h1>
 
