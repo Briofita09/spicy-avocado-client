@@ -24,13 +24,6 @@ function UserComments() {
     <div>
       <NavBar />
       <table>
-        <thead>
-          <tr>
-            <th>Titulo do Comentario</th>
-            <th>Comentario</th>
-            <th>Id do Filme</th>
-          </tr>
-        </thead>
         <tbody>
           {state.map((comment) => {
             return (
@@ -38,7 +31,6 @@ function UserComments() {
                 <tr>
                   <td>{comment.title}</td>
                   <td>{comment.comment}</td>
-                  <td>{comment.contentId}</td>
                   <td>
                     <Link to="/:commentId/edit-comment">
                       <button>Editar Comentario</button>
