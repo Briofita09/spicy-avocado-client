@@ -43,9 +43,8 @@ function UserComments() {
                     <Link to="/:commentId/edit-comment">
                       <button>Editar Comentario</button>
                     </Link>
-                    <Link to="/:commentId/delete-comment">
-                      <button>Deletar comentario</button>
-                    </Link>
+
+                    <button>Deletar comentario</button>
                   </td>
                 </tr>
               </div>
