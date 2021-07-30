@@ -16,16 +16,13 @@ export default class SimpleSlider extends Component {
   };
 
   render() {
-    console.log(this.props);
     const settings = {
-      dots: true,
+      className: "center",
+      centerMode: true,
       infinite: true,
+      centerPadding: "60px",
       slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
-      cssEase: "linear",
+      speed: 500,
     };
     return (
       <div className={style.sliderContainer}>
