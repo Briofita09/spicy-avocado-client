@@ -1,10 +1,10 @@
 import React from "react";
-import style from "../assets/styles/PopularSlider.module.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import WatchlistRemover from "../components/WatchlistRemover";
+import style from "../assets/styles/WatchlistPoster.module.scss";
 
 export default function Watchlist(props) {
   const [state, setState] = useState({ content: {} });
@@ -21,18 +21,16 @@ export default function Watchlist(props) {
   }, []);
 
   return (
-    <div className={style.sliderContainer}>
-      <div>
+    <div className={style.masterContainer}>
+      <div className={style.posterContainer}>
         <Link
           to={`/${props.contentType}/${props.contentId}/contentDescription`}
         >
           <img
             src={`https://image.tmdb.org/t/p/w200/${state.content.poster_path}`}
-            alt={state.original_title}
+            alt="Content Poster"
           />
         </Link>
-        <p>{state.original_title}</p>
-
         <WatchlistRemover
           contentType={props.contentType}
           contentId={props.contentId}

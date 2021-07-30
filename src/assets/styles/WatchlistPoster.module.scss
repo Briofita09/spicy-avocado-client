@@ -1,0 +1,26 @@
+.masterContainer {
+  display: flex;
+  align-items: center;
+
+  img {
+    margin: 2.5rem;
+  }
+
+  button {
+    width: 355px;
+    height: 50px;
+    background-color: var(--orange-dark);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 15px;
+    color: #fff;
+    padding: 1rem;
+    border: 0;
+  }
+}
+
+.posterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

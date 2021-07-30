@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import SearchResult from "../components/SearchResult";
+import style from "../assets/styles/SearchPage.module.scss";
 
 export default function SearchPage(props) {
   const { contentType } = useParams();
@@ -23,8 +24,8 @@ export default function SearchPage(props) {
   return (
     <>
       <NavBar contentType={contentType} />
-      <section>
-        <input
+      <section className={style.searchArea}>
+        <textarea
           value={searchState.name}
           id="name"
           type="text"

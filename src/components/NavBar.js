@@ -17,7 +17,7 @@ function NavBar(props) {
           <img src={homeIcon} alt="Home Icon" />
           <p>Home</p>
         </Link>
-        <Link to={`/watchlist`} className={style.navlink}>
+        <Link to={`/${props.contentType}/watchlist`} className={style.navlink}>
           <img src={listIcon} alt="List Icon" />
           <p>Minha Lista</p>
         </Link>

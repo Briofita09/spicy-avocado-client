@@ -14,6 +14,7 @@ import Watchlist from "../routeComponents/Watchlist";
 import GenrePage from "../routeComponents/GenrePage";
 import UserComments from "../routeComponents/UserListofComments";
 import SearchPage from "../routeComponents/SearchPage";
+import CommentEditionPage from "../routeComponents/CommentEditionPage";
 
 function App() {
   return (
@@ -59,8 +60,18 @@ function App() {
             path="/profile/userComments"
             component={UserComments}
           />
+
+          <ProtectedRoute
+            exact
+            path="/profile/commentEditionPage"
+            component="/profile/comment-edition-page"
+          />
           <ProtectedRoute exact path="/profile" component={Profile} />
-          <ProtectedRoute exact path="/watchlist" component={Watchlist} />
+          <ProtectedRoute
+            exact
+            path="/:contentType/watchlist"
+            component={Watchlist}
+          />
           <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>
