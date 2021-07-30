@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import api from "../apis/api";
 
 import NavBar from "../components/NavBar";
-import WatchlistSlider from "../components/WatchlistSlider";
+import WatchlistPosters from "../components/WatchlistPosters";
+import WatchlistRemover from "../components/WatchlistRemover";
 
 import { useParams } from "react-router-dom";
 
@@ -26,7 +27,7 @@ function WatchList() {
       {responseDB.map((content) => {
         return (
           <div>
-            <WatchlistSlider
+            <WatchlistPosters
               contentType={content.contentType}
               contentId={content.contentId}
             />

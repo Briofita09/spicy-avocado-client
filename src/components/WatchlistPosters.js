@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
+import WatchlistRemover from "../components/WatchlistRemover";
 
 export default function Watchlist(props) {
   const [state, setState] = useState({ content: {} });
@@ -31,6 +32,11 @@ export default function Watchlist(props) {
           />
         </Link>
         <p>{state.original_title}</p>
+
+        <WatchlistRemover
+          contentType={props.contentType}
+          contentId={props.contentId}
+        />
       </div>
     </div>
   );
