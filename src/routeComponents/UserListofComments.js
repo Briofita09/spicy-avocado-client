@@ -4,6 +4,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import style from "../assets/styles/UserListComments.module.scss";
 
 import NavBar from "../components/NavBar";
+import CommentEditionPage from "./CommentEditionPage";
 
 function UserComments() {
   const [state, setState] = useState([]);
@@ -38,9 +39,15 @@ function UserComments() {
                 </div>
                 <td>
                   <div className={style.row}>
-                    <Link>
-                      <button type="button">Editar Comentario</button>
-                    </Link>
+                    {/* <button
+                      type="button"
+                      onClick={() => {
+                        history.push(`/${comment._id}/edit-comment`);
+                      }}
+                    >
+                      Editar Comentario
+                    </button> */}
+
                     <button
                       type="submit"
                       onClick={() => {

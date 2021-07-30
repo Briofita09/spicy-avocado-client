@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import api from "../../apis/api";
 import styles from "../../assets/styles/Signup.module.scss";
 
 import HeaderNoLogin from "../../components/HeaderNoLogin";
 
 function Signup(props) {
+  const history = useHistory();
+
   const [state, setState] = useState({ name: "", password: "", email: "" });
   const [errors, setErrors] = useState({
     name: null,
@@ -22,11 +24,12 @@ function Signup(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    // history.push("/auth/login");
 
     try {
       const response = await api.post("/signup", state);
       setErrors({ name: "", password: "", email: "" });
-      props.history.push("/auth/login");
+      history.push("/auth/login");
     } catch (err) {
       console.error(err.response);
       setErrors({ ...err.response.data.errors });
