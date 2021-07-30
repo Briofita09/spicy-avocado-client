@@ -32,7 +32,7 @@ function Movies(props) {
         <section className={style.genresGrid}>
           {genres.map((genre) => {
             return (
-              <Link to={`/${props.params}/${genre.name}`}>
+              <Link to={`/${contentType}/${genre.id}/genrePage`}>
                 <button type="button">{genre.name}</button>{" "}
               </Link>
             );

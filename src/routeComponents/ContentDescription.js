@@ -4,25 +4,18 @@ import api from "../apis/api";
 import axios from "axios";
 import style from "../assets/styles/ContentDescription.module.scss";
 
-import like from "../assets/images/other-icons/like.png";
-import dislike from "../assets/images/other-icons/dislike.png";
 import NavBar from "../components/NavBar";
 
 function ContentDescription() {
   const [tmdbState, setTmdbState] = useState({
     poster_path: "",
     original_title: "",
+    original_name: "",
     release_date: "",
+    first_air_date: "",
     genres: [],
     overview: "",
   });
-
-  const [likeState, setLikeState] = useState({
-    likeCounter: 0,
-    dislikeCounter: 0,
-  });
-  //Link para renderizar o poster
-  //`https://image.tmdb.org/t/p/w200/${poster_path}`
 
   const [commentState, setCommentState] = useState({
     comments: [],
@@ -38,16 +31,9 @@ function ContentDescription() {
         );
         setTmdbState({ ...tmdbResponse.data });
 
-        const likeResponse = await api.get(
-          `/${contentType}/${contentId}/contentInfos`
-        );
-
-        setLikeState({ ...likeResponse.data });
-
         const commentResponse = await api.get(
           `/${contentType}/${contentId}/contentComments`
         );
-        console.log(commentResponse);
         setCommentState({ comments: commentResponse.data });
       } catch (err) {
         console.error(err);
@@ -58,6 +44,20 @@ function ContentDescription() {
 
   console.log(commentState.comments);
 
+  let title;
+  if (contentType === "tv") {
+    title = tmdbState.original_name;
+  } else {
+    title = tmdbState.original_title;
+  }
+
+  let date;
+  if (contentType === "tv") {
+    date = tmdbState.first_air_date;
+  } else {
+    date = tmdbState.release_date;
+  }
+
   return (
     <>
       <NavBar />
@@ -65,34 +65,27 @@ function ContentDescription() {
         <div className={style.picAndTitle}>
           <img
             src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
-            alt={tmdbState.original_title}
+            alt={title}
           />
           <div className={style.infos}>
-            <h1>{tmdbState.original_title}</h1>
-            <h1>{` (${new Date(tmdbState.release_date).getFullYear()})`}</h1>
+            <h1>{title}</h1>
+            <h1>{` (${new Date(date).getFullYear()})`}</h1>
             <h3>Sinopse: </h3>
             <p>{tmdbState.overview}</p>
-            <section className={style.rateSection}>
-              <button type="submit">
-                <img src={like} alt="Like Icon" />
-              </button>
-              <button type="submit">
-                <img src={dislike} alt="Dislike Icon" />
-              </button>
-            </section>
           </div>
         </div>
         <div className={style.genresBlock}>
           <h3>Gênero: </h3>
-          <Link>
-            {tmdbState.genres.map((genre) => {
-              return (
+
+          {tmdbState.genres.map((genre) => {
+            return (
+              <Link to={`/${contentType}/${genre.id}/genrePage`}>
                 <button type="button" className={style.Button}>
                   {genre.name}
                 </button>
-              );
-            })}
-          </Link>
+              </Link>
+            );
+          })}
         </div>
       </section>
       <hr className={style.sectionDiv} />
