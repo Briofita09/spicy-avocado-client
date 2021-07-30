@@ -4,20 +4,37 @@ import { Link, useHistory } from "react-router-dom";
 
 function UserComments() {
   const [state, setState] = useState([]);
+  const [commentState, setCommentState] = useState({});
+
+  const history = useHistory();
+
+  async function handleDelete(props) {
+    try {
+      await api.delete(`/delete-comment/${state.commentId}`);
+      history.push(`/profile`);
+    } catch (err) {
+      console.error(err.response.data);
+    }
+  }
 
   useEffect(() => {
     async function fetchComments() {
       try {
         const response = await api.get("/profile/userComments");
-        console.log(response.data);
+
         setState([...response.data]);
+
+        const commentResponse = await api.get("/profile/userComments");
+
+        setCommentState({ ...commentResponse.data });
       } catch (err) {
         console.error(err);
       }
     }
     fetchComments();
   }, []);
-  console.log(state);
+  //console.log(state);
+  console.log(commentState.commentId);
   return (
     <div>
       <table>
@@ -37,12 +54,24 @@ function UserComments() {
                   <td>{comment.comment}</td>
                   <td>{comment.contentId}</td>
                   <td>
-                    <Link to="/:commentId/edit-comment">
-                      <button>Editar Comentario</button>
+                    <Link>
+                      <button type="button">Editar Comentario</button>
                     </Link>
-                    <Link to="/:commentId/delete-comment">
-                      <button>Deletar comentario</button>
-                    </Link>
+
+                    <button
+                      type="submit"
+                      onClick={() => {
+                        try {
+                          api.delete(`/delete-comment/${comment._id}`);
+                          history.push(`/profile`);
+                        } catch (err) {
+                          console.error(err.response.data);
+                        }
+                      }}
+                      id={comment._id}
+                    >
+                      Deletar comentario
+                    </button>
                   </td>
                 </tr>
               </div>

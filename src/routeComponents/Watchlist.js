@@ -36,7 +36,7 @@ function WatchList() {
         <img src={searchIcon} alt="search icon" />
         <Link to="/">Pesquisar</Link>
         <img src={accIcon} alt="my account icon" />
-        <Link to="/">Minha Conta</Link>
+        <Link to="/profile">Minha Conta</Link>
       </nav>
       <section className="minhaLista">
         <h1>Minha Lista: </h1>

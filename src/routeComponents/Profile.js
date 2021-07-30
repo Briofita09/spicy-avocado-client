@@ -77,13 +77,13 @@ function Profile() {
       <nav>
         <img src={spiciAvocado} alt="spice avocado logo" />
         <img src={homeIcon} alt="home icon" />
-        <Link to="/">Home</Link>
+        <Link to="/contentTypeSelector">Home</Link>
         <img src={listIcon} alt="my list icon" />
         <Link to="/">Minha Lista</Link>
         <img src={searchIcon} alt="search icon" />
         <Link to="/">Pesquisar</Link>
         <img src={accIcon} alt="my account icon" />
-        <Link to="/">Minha Conta</Link>
+        <Link to="/watchlist">Minha Conta</Link>
       </nav>
 
       <section>
