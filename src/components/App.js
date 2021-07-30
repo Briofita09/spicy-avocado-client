@@ -11,7 +11,9 @@ import ContentForum from "../routeComponents/ContentForum";
 import ContentDescription from "../routeComponents/ContentDescription";
 import Profile from "../routeComponents/Profile";
 import Watchlist from "../routeComponents/Watchlist";
+import GenrePage from "../routeComponents/GenrePage";
 import UserComments from "../routeComponents/UserListofComments";
+import SearchPage from "../routeComponents/SearchPage";
 
 function App() {
   return (
@@ -24,7 +26,6 @@ function App() {
             path="/contentTypeSelector"
             component={ContentTypeSelector}
           />
-          <ProtectedRoute exact path="/search" component={PopularContent} />
           <ProtectedRoute
             exact
             path="/:contentType/popularContent"
@@ -35,11 +36,20 @@ function App() {
             path="/:contentType/:contentId/contentDescription"
             component={ContentDescription}
           />
+
+          <ProtectedRoute
+            exact
+            path="/:contentType/:genreId/genrePage"
+            component={GenrePage}
+          />
+
           <ProtectedRoute
             exact
             path="/:contentType/:contentId/contentComments"
             component={ContentForum}
           />
+          <ProtectedRoute exact path="/search" component={SearchPage} />
+
           <ProtectedRoute
             exact
             path="/profile/userComments"

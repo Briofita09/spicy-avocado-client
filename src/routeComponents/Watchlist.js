@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import api from "../apis/api";
 
-import Logo from "../assets/images/logos/horizontal.svg";
-import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
-import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
-import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
-import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
+import NavBar from "../components/NavBar";
 
 function WatchList() {
   const [watchList, setWatchList] = useState([]);
@@ -27,17 +22,9 @@ function WatchList() {
 
   return (
     <div>
-      <nav>
-        <img src={Logo} alt="Logo" />
-        <img src={homeIcon} alt="home icon" />
-        <Link to="/">Home</Link>
-        <img src={listIcon} alt="my list icon" />
-        <Link to="/">Minha Lista</Link>
-        <img src={searchIcon} alt="search icon" />
-        <Link to="/">Pesquisar</Link>
-        <img src={accIcon} alt="my account icon" />
-        <Link to="/profile">Minha Conta</Link>
-      </nav>
+
+      <NavBar />
+
       <section className="minhaLista">
         <h1>Minha Lista: </h1>
 

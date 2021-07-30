@@ -27,7 +27,13 @@
 .genresBlock {
   display: flex;
   text-decoration: none;
+  align-items: start;
   flex-direction: column;
+  margin-left: 2rem;
+
+  h1 {
+    margin-left: 2rem;
+  }
 }
 
 .Button {
@@ -39,36 +45,38 @@
   font-size: 15px;
   color: #fff;
   padding: 1rem;
-  margin: 1rem;
-  margin-top: 2, 5rem;
   border: 0;
-}
-
-.rateSection {
-  display: flex;
-  flex-direction: row;
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    width: 40px;
-    height: 40px;
-    padding: 1rem;
-    margin: 1rem;
-  }
 }
 
 .commentsSection {
   display: flex;
+  margin-left: 2rem;
   flex-direction: column;
 
   h1 {
     margin-top: 2rem;
-    padding: 1rem;
+    margin-left: 2rem;
   }
 }
 
 .sectionDiv {
   border: 1px solid #ddd;
+}
+
+.forumContainer {
+  display: flex;
+  flex-direction: column;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.titleAndButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

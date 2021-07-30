@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import style from "../assets/styles/ContentForum.module.scss";
 
 import api from "../apis/api";
 
-import spicyAvocado from "../assets/images/logos/horizontal.svg";
-import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
-import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
-import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
-import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
+import NavBar from "../components/NavBar";
 
 function ContentForum() {
   const [tmdbState, setTmdbState] = useState({
@@ -72,72 +69,66 @@ function ContentForum() {
     fetchComments();
   }, [contentType, contentId]);
 
-  console.log(state);
+  let title;
+  if (contentType === "tv") {
+    title = tmdbState.original_name;
+  } else {
+    title = tmdbState.original_title;
+  }
+
   return (
     <div>
-      <nav>
-        <img src={spicyAvocado} alt="spice avocado logo" />
-        <img src={homeIcon} alt="home icon" />
-        <Link to="/">Home</Link>
-        <img src={listIcon} alt="my list icon" />
-        <Link to="/">Minha Lista</Link>
-        <img src={searchIcon} alt="search icon" />
-        <Link to="/">Pesquisar</Link>
-        <img src={accIcon} alt="my account icon" />
-        <Link to="/profile">Minha Conta</Link>
-      </nav>
+      <NavBar />
 
-      <section className="main">
-        <div>
+      <div className={style.primaryContainer}>
+        <section className={style.titleContainer}>
+          <div>
+            <h1>Discussão: </h1>
+            <h1>{`${tmdbState.original_title} (${new Date(
+              tmdbState.release_date
+            ).getFullYear()})`}</h1>
+          </div>
           <img
             src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+            alt={title}
           />
-        </div>
-
-        <div>
-          <h1>Discussão: </h1>
-          <h1>{tmdbState.original_title}</h1>
-          <h1>{new Date(tmdbState.release_date).getFullYear()}</h1>
-        </div>
-      </section>
-
-      <section className="comments">
-        <ul>
-          {ourState.comments.map((comment) => {
-            return (
-              <li>
-                <h4>{comment.commentCreator.name}</h4>
-                <p>{comment.title}</p>
-                <span>{comment.comment}</span>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-      <hr />
-      <section className="newComment">
-        <form>
-          <label htmlFor="title">Titulo: </label>
-          <input
-            id="title"
-            value={state.title}
-            type="text"
-            onChange={handleChange}
-            name="title"
-          />
-          <label htmlFor="comment">Comentario: </label>
-          <textarea
-            value={state.comment}
-            id="comment"
-            type="text"
-            onChange={handleChange}
-            name="comment"
-          />
-          <button type="submit" onClick={handleSubmit}>
-            Publicar
-          </button>
-        </form>
-      </section>
+        </section>
+        <section className={style.formContainer}>
+          <ul>
+            {ourState.comments.map((comment) => {
+              return (
+                <li>
+                  <h4>{comment.commentCreator.name}</h4>
+                  <p>{comment.title}</p>
+                  <span>{comment.comment}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </div>
+      <hr className={style.divLine} />
+      <form className={style.formContainer}>
+        <label htmlFor="title">Titulo: </label>
+        <input
+          id="title"
+          value={state.title}
+          type="text"
+          onChange={handleChange}
+          name="title"
+        />
+        <label htmlFor="comment">Comentario: </label>
+        <textarea
+          value={state.comment}
+          id="comment"
+          type="text"
+          onChange={handleChange}
+          name="comment"
+        />
+        <button type="submit" onClick={handleSubmit}>
+          Publicar
+        </button>
+      </form>
     </div>
   );
 }

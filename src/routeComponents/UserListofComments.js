@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../apis/api";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import NavBar from "../components/NavBar";
 
 function UserComments() {
   const [state, setState] = useState([]);
@@ -37,14 +39,8 @@ function UserComments() {
   console.log(commentState.commentId);
   return (
     <div>
+      <NavBar />
       <table>
-        <thead>
-          <tr>
-            <th>Titulo do Comentario</th>
-            <th>Comentario</th>
-            <th>Id do Filme</th>
-          </tr>
-        </thead>
         <tbody>
           {state.map((comment) => {
             return (
@@ -52,7 +48,6 @@ function UserComments() {
                 <tr>
                   <td>{comment.title}</td>
                   <td>{comment.comment}</td>
-                  <td>{comment.contentId}</td>
                   <td>
                     <Link>
                       <button type="button">Editar Comentario</button>
@@ -72,6 +67,7 @@ function UserComments() {
                     >
                       Deletar comentario
                     </button>
+
                   </td>
                 </tr>
               </div>

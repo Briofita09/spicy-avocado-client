@@ -1,0 +1,32 @@
+.primaryContainer {
+  display: flex;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img {
+    margin: 2rem;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1 {
+    margin-top: 2rem;
+  }
+}
+
+.divLine {
+  border: 1px solid #ddd;
+  margin: 1.5rem;
+  margin-top: 4rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
