@@ -56,19 +56,11 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/:contentType/profile/userComments"
+            path="/profile/userComments"
             component={UserComments}
           />
-          <ProtectedRoute
-            exact
-            path="/:contentType/profile"
-            component={Profile}
-          />
-          <ProtectedRoute
-            exact
-            path="/:contentType/watchlist"
-            component={Watchlist}
-          />
+          <ProtectedRoute exact path="/profile" component={Profile} />
+          <ProtectedRoute exact path="/watchlist" component={Watchlist} />
           <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>

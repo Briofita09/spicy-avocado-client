@@ -71,6 +71,18 @@ function ContentDescription() {
             <p>{tmdbState.overview}</p>
           </div>
         </div>
+        <button
+          type="button"
+          onClick={() => {
+            try {
+              api.post(`/${contentType}/${contentId}/watchlist`);
+            } catch (err) {
+              console.log(err);
+            }
+          }}
+        >
+          Adicionar a WatchList
+        </button>
         <div className={style.genresBlock}>
           <h1>Gênero: </h1>
           <div>
