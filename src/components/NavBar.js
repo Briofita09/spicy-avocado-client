@@ -8,7 +8,7 @@ import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x
 import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
 import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <header>
       <img src={Logo} alt="Logo" />
@@ -21,7 +21,7 @@ function NavBar() {
           <img src={listIcon} alt="List Icon" />
           <p>Minha Lista</p>
         </Link>
-        <Link to="/search" className={style.navlink}>
+        <Link to={`/${props.contentType}/search`} className={style.navlink}>
           <img src={searchIcon} alt="Search Icon" />
           <p>Pesquisar</p>
         </Link>

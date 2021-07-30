@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import api from "../apis/api";
 import style from "../assets/styles/Profile.module.scss";
 
@@ -9,6 +9,8 @@ function Profile() {
   const [userState, setUserState] = useState([]);
   const [commentsLength, setCommentsLength] = useState([]);
   const history = useHistory();
+
+  const { contentType } = useParams();
 
   useEffect(() => {
     async function fetchProfile() {
@@ -27,7 +29,7 @@ function Profile() {
   console.log(commentsLength);
   return (
     <div>
-      <NavBar />
+      <NavBar contentType={contentType} />
       <section className={style.profileContainer}>
         <h2>{userState.name}</h2>
         <p>É um abacate apimentado desde:</p>

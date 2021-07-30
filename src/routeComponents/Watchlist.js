@@ -3,8 +3,11 @@ import api from "../apis/api";
 
 import NavBar from "../components/NavBar";
 
+import { useParams } from "react-router-dom";
+
 function WatchList() {
   const [watchList, setWatchList] = useState([]);
+  const { contentType } = useParams();
 
   useEffect(() => {
     async function fetchWatchList() {
@@ -22,8 +25,7 @@ function WatchList() {
 
   return (
     <div>
-
-      <NavBar />
+      <NavBar contentType={contentType} />
 
       <section className="minhaLista">
         <h1>Minha Lista: </h1>

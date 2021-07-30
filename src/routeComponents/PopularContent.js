@@ -24,7 +24,7 @@ function Movies(props) {
 
   return (
     <>
-      <NavBar />
+      <NavBar contentType={contentType} />
       <div className={style.pageContainer}>
         <h2>Populares:</h2>
         <Slider infos={contentType} />

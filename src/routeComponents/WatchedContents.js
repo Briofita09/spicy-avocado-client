@@ -4,10 +4,14 @@ import NavBar from "../components/NavBar";
 import like from "../assets/images/other-icons/like.png";
 import dislike from "../assets/images/other-icons/dislike.png";
 
+import { useParams } from "react-router-dom";
+
 function WatchedMovie() {
+  const { contentType } = useParams();
+
   return (
     <section>
-      <NavBar />
+      <NavBar contentType={contentType} />
       <article>
         {/* movie.img */}
         {/* movie.title + movie.year */}

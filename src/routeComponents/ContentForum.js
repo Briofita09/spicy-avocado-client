@@ -78,8 +78,7 @@ function ContentForum() {
 
   return (
     <div>
-      <NavBar />
-
+      <NavBar contentType={contentType} />
       <div className={style.primaryContainer}>
         <section className={style.titleContainer}>
           <div>
@@ -87,24 +86,25 @@ function ContentForum() {
             <h1>{`${tmdbState.original_title} (${new Date(
               tmdbState.release_date
             ).getFullYear()})`}</h1>
+            <img
+              src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+              alt={title}
+            />
           </div>
-          <img
-            src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
-            alt={title}
-          />
-        </section>
-        <section className={style.formContainer}>
-          <ul>
-            {ourState.comments.map((comment) => {
-              return (
-                <li>
-                  <h4>{comment.commentCreator.name}</h4>
-                  <p>{comment.title}</p>
-                  <span>{comment.comment}</span>
-                </li>
-              );
-            })}
-          </ul>
+
+          <section className={style.formContainer}>
+            <ul>
+              {ourState.comments.map((comment) => {
+                return (
+                  <li>
+                    <h4>{comment.commentCreator.name}</h4>
+                    <p>{comment.title}</p>
+                    <span>{comment.comment}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
         </section>
       </div>
       <hr className={style.divLine} />

@@ -8,7 +8,7 @@ export default function GenrePage(props) {
 
   return (
     <>
-      <NavBar />
+      <NavBar contentType={contentType} />
       <GenreSlider contentType={contentType} genreId={genreId} />
     </>
   );

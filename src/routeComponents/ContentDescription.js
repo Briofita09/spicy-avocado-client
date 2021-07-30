@@ -58,7 +58,7 @@ function ContentDescription() {
 
   return (
     <>
-      <NavBar />
+      <NavBar contentType={contentType} />
       <section className={style.contentContainer}>
         <div className={style.picAndTitle}>
           <img
@@ -91,7 +91,7 @@ function ContentDescription() {
         <div className={style.titleAndButton}>
           <h1>Discussão:</h1>
           <Link to={`/${contentType}/${contentId}/contentComments`}>
-            <button type="button" className={style.Button}>
+            <button type="button" className={style.margin}>
               Participar da discussão
             </button>
           </Link>
