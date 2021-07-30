@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import api from "../apis/api";
 
-import spiciAvocado from "../assets/images/logos/horizontal.svg";
-import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
-import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
-import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
-import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
+import NavBar from "../components/NavBar";
 
 function Profile() {
   const [state, setState] = useState({
@@ -74,18 +70,7 @@ function Profile() {
 
   return (
     <div>
-      <nav>
-        <img src={spiciAvocado} alt="spice avocado logo" />
-        <img src={homeIcon} alt="home icon" />
-        <Link to="/">Home</Link>
-        <img src={listIcon} alt="my list icon" />
-        <Link to="/">Minha Lista</Link>
-        <img src={searchIcon} alt="search icon" />
-        <Link to="/">Pesquisar</Link>
-        <img src={accIcon} alt="my account icon" />
-        <Link to="/">Minha Conta</Link>
-      </nav>
-
+      <NavBar />
       <section>
         <div>
           <h1>IMAGEM DO USUARIO</h1>

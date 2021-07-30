@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import api from "../apis/api";
 
-import spicyAvocado from "../assets/images/logos/horizontal.svg";
-import homeIcon from "../assets/images/navbar/streamline-icon-house-2@48x48.png";
-import listIcon from "../assets/images/navbar/streamline-icon-pencil-write-1@48x48.png";
-import searchIcon from "../assets/images/navbar/streamline-icon-search-1@48x48.png";
-import accIcon from "../assets/images/navbar/streamline-icon-single-neutral_1@48x48.png";
+import NavBar from "../components/NavBar";
 
 function ContentForum() {
   const [tmdbState, setTmdbState] = useState({
@@ -72,25 +68,22 @@ function ContentForum() {
     fetchComments();
   }, [contentType, contentId]);
 
-  console.log(state);
+  let title;
+  if (contentType === "tv") {
+    title = tmdbState.original_name;
+  } else {
+    title = tmdbState.original_title;
+  }
+
   return (
     <div>
-      <nav>
-        <img src={spicyAvocado} alt="spice avocado logo" />
-        <img src={homeIcon} alt="home icon" />
-        <Link to="/">Home</Link>
-        <img src={listIcon} alt="my list icon" />
-        <Link to="/">Minha Lista</Link>
-        <img src={searchIcon} alt="search icon" />
-        <Link to="/">Pesquisar</Link>
-        <img src={accIcon} alt="my account icon" />
-        <Link to="/profile">Minha Conta</Link>
-      </nav>
+      <NavBar />
 
       <section className="main">
         <div>
           <img
             src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+            alt={title}
           />
         </div>
 
