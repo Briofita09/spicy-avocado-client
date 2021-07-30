@@ -91,9 +91,7 @@ function ContentDescription() {
         <div className={style.titleAndButton}>
           <h1>Discussão:</h1>
           <Link to={`/${contentType}/${contentId}/contentComments`}>
-            <button type="button" className={style.Button}>
-              Participar da discussão
-            </button>
+            <button type="button">Participar da discussão</button>
           </Link>
         </div>
         <ul className={style.forumContainer}>

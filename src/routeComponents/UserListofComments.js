@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../apis/api";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import NavBar from "../components/NavBar";
 
@@ -9,15 +9,6 @@ function UserComments() {
   const [commentState, setCommentState] = useState({});
 
   const history = useHistory();
-
-  async function handleDelete(props) {
-    try {
-      await api.delete(`/delete-comment/${state.commentId}`);
-      history.push(`/profile`);
-    } catch (err) {
-      console.error(err.response.data);
-    }
-  }
 
   useEffect(() => {
     async function fetchComments() {
@@ -35,8 +26,6 @@ function UserComments() {
     }
     fetchComments();
   }, []);
-  //console.log(state);
-  console.log(commentState.commentId);
   return (
     <div>
       <NavBar />
@@ -67,7 +56,6 @@ function UserComments() {
                     >
                       Deletar comentario
                     </button>
-
                   </td>
                 </tr>
               </div>
