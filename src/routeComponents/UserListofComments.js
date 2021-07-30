@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../apis/api";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import NavBar from "../components/NavBar";
 
 function UserComments() {
   const [state, setState] = useState([]);
@@ -20,6 +22,7 @@ function UserComments() {
   console.log(state);
   return (
     <div>
+      <NavBar />
       <table>
         <thead>
           <tr>
@@ -40,9 +43,8 @@ function UserComments() {
                     <Link to="/:commentId/edit-comment">
                       <button>Editar Comentario</button>
                     </Link>
-                    <Link to="/:commentId/delete-comment">
-                      <button>Deletar comentario</button>
-                    </Link>
+
+                    <button>Deletar comentario</button>
                   </td>
                 </tr>
               </div>
