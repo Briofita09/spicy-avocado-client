@@ -3,7 +3,7 @@ import api from "../apis/api";
 
 import NavBar from "../components/NavBar";
 import WatchlistPosters from "../components/WatchlistPosters";
-import WatchlistRemover from "../components/WatchlistRemover";
+import style from "../assets/styles/Watchlist.module.scss";
 
 import { useParams } from "react-router-dom";
 
@@ -23,17 +23,18 @@ function WatchList() {
     <>
       <NavBar contentType={contentType} />
       <h1>Minha Lista: </h1>
-
-      {responseDB.map((content) => {
-        return (
-          <div>
-            <WatchlistPosters
-              contentType={content.contentType}
-              contentId={content.contentId}
-            />
-          </div>
-        );
-      })}
+      <div class={style.containerBox}>
+        {responseDB.map((content) => {
+          return (
+            <div className={style.postersContainer}>
+              <WatchlistPosters
+                contentType={content.contentType}
+                contentId={content.contentId}
+              />
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }
