@@ -80,55 +80,55 @@ function ContentForum() {
     <div>
       <NavBar />
 
-      <section className={style.titleContainer}>
-        <img
-          src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
-          alt={title}
-        />
-        <div>
-          <h1>Discussão: </h1>
-          <h1>{`${tmdbState.original_title} (${new Date(
-            tmdbState.release_date
-          ).getFullYear()})`}</h1>
-        </div>
-      </section>
-      <section className={style.forumContainer}>
-        <ul>
-          {ourState.comments.map((comment) => {
-            return (
-              <li>
-                <h4>{comment.commentCreator.name}</h4>
-                <p>{comment.title}</p>
-                <span>{comment.comment}</span>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+      <div className={style.primaryContainer}>
+        <section className={style.titleContainer}>
+          <div>
+            <h1>Discussão: </h1>
+            <h1>{`${tmdbState.original_title} (${new Date(
+              tmdbState.release_date
+            ).getFullYear()})`}</h1>
+          </div>
+          <img
+            src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+            alt={title}
+          />
+        </section>
+        <section className={style.formContainer}>
+          <ul>
+            {ourState.comments.map((comment) => {
+              return (
+                <li>
+                  <h4>{comment.commentCreator.name}</h4>
+                  <p>{comment.title}</p>
+                  <span>{comment.comment}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </div>
       <hr className={style.divLine} />
-      <section>
-        <form>
-          <label htmlFor="title">Titulo: </label>
-          <input
-            id="title"
-            value={state.title}
-            type="text"
-            onChange={handleChange}
-            name="title"
-          />
-          <label htmlFor="comment">Comentario: </label>
-          <textarea
-            value={state.comment}
-            id="comment"
-            type="text"
-            onChange={handleChange}
-            name="comment"
-          />
-          <button type="submit" onClick={handleSubmit}>
-            Publicar
-          </button>
-        </form>
-      </section>
+      <form className={style.formContainer}>
+        <label htmlFor="title">Titulo: </label>
+        <input
+          id="title"
+          value={state.title}
+          type="text"
+          onChange={handleChange}
+          name="title"
+        />
+        <label htmlFor="comment">Comentario: </label>
+        <textarea
+          value={state.comment}
+          id="comment"
+          type="text"
+          onChange={handleChange}
+          name="comment"
+        />
+        <button type="submit" onClick={handleSubmit}>
+          Publicar
+        </button>
+      </form>
     </div>
   );
 }
