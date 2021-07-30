@@ -1,0 +1,17 @@
+.titleContainer {
+  display: flex;
+  align-items: center;
+  img {
+    margin: 2rem;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.divLine {
+  border: 1px solid #ddd;
+  margin: 1.5rem;
+  margin-top: 4rem;
+}

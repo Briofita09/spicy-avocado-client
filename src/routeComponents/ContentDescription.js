@@ -88,8 +88,15 @@ function ContentDescription() {
       </section>
       <hr className={style.sectionDiv} />
       <section className={style.commentsSection}>
-        <h1>Discussão:</h1>
-        <ul>
+        <div className={style.titleAndButton}>
+          <h1>Discussão:</h1>
+          <Link to={`/${contentType}/${contentId}/contentComments`}>
+            <button type="button" className={style.Button}>
+              Participar da discussão
+            </button>
+          </Link>
+        </div>
+        <ul className={style.forumContainer}>
           {commentState.comments.map((comment) => {
             return (
               <li>
@@ -100,11 +107,6 @@ function ContentDescription() {
             );
           })}
         </ul>
-        <Link to={`/${contentType}/${contentId}/contentComments`}>
-          <button type="button" className={style.Button}>
-            Comentar na discussão
-          </button>
-        </Link>
       </section>
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
+import style from "../assets/styles/ContentForum.module.scss";
 
 import api from "../apis/api";
 
@@ -79,22 +80,19 @@ function ContentForum() {
     <div>
       <NavBar />
 
-      <section className="main">
-        <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
-            alt={title}
-          />
-        </div>
-
+      <section className={style.titleContainer}>
+        <img
+          src={`https://image.tmdb.org/t/p/w200/${tmdbState.poster_path}`}
+          alt={title}
+        />
         <div>
           <h1>Discussão: </h1>
-          <h1>{tmdbState.original_title}</h1>
-          <h1>{new Date(tmdbState.release_date).getFullYear()}</h1>
+          <h1>{`${tmdbState.original_title} (${new Date(
+            tmdbState.release_date
+          ).getFullYear()})`}</h1>
         </div>
       </section>
-
-      <section className="comments">
+      <section className={style.forumContainer}>
         <ul>
           {ourState.comments.map((comment) => {
             return (
@@ -107,8 +105,8 @@ function ContentForum() {
           })}
         </ul>
       </section>
-      <hr />
-      <section className="newComment">
+      <hr className={style.divLine} />
+      <section>
         <form>
           <label htmlFor="title">Titulo: </label>
           <input
