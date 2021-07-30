@@ -68,24 +68,24 @@ function ContentDescription() {
             alt={title}
           />
           <div className={style.infos}>
-            <h1>{title}</h1>
-            <h1>{` (${new Date(date).getFullYear()})`}</h1>
+            <h1>{`${title} (${new Date(date).getFullYear()})`}</h1>
             <h3>Sinopse: </h3>
             <p>{tmdbState.overview}</p>
           </div>
         </div>
         <div className={style.genresBlock}>
-          <h3>Gênero: </h3>
-
-          {tmdbState.genres.map((genre) => {
-            return (
-              <Link to={`/${contentType}/${genre.id}/genrePage`}>
-                <button type="button" className={style.Button}>
-                  {genre.name}
-                </button>
-              </Link>
-            );
-          })}
+          <h1>Gênero: </h1>
+          <div>
+            {tmdbState.genres.map((genre) => {
+              return (
+                <Link to={`/${contentType}/${genre.id}/genrePage`}>
+                  <button type="button" className={style.Button}>
+                    {genre.name}
+                  </button>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
       <hr className={style.sectionDiv} />
@@ -102,12 +102,12 @@ function ContentDescription() {
             );
           })}
         </ul>
+        <Link to={`/${contentType}/${contentId}/contentComments`}>
+          <button type="button" className={style.Button}>
+            Comentar na discussão
+          </button>
+        </Link>
       </section>
-      <Link to={`/${contentType}/${contentId}/contentComments`}>
-        <button type="button" className={style.Button}>
-          Comentar na discussão
-        </button>
-      </Link>
     </>
   );
 }
