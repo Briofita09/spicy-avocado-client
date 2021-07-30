@@ -42,8 +42,6 @@ function ContentDescription() {
     fetchMovie();
   }, []);
 
-  console.log(commentState.comments);
-
   let title;
   if (contentType === "tv") {
     title = tmdbState.original_name;

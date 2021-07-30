@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import "../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 import api from "../apis/api";
 
@@ -29,22 +26,19 @@ function ContentForum() {
     comment: "",
   });
 
+  const history = useHistory();
+
   const { contentType, contentId } = useParams();
 
   function handleChange(event) {
-    setState(event.target.value);
+    setState({ ...state, [event.target.name]: event.target.value });
   }
 
   async function handleSubmit(event) {
+    event.preventDefault();
     try {
-      event.preventDefault();
-
-      const response = await api.put(
-        `/${contentType}/${contentId}/add-comment`,
-        {
-          state,
-        }
-      );
+      await api.post(`/${contentType}/${contentId}/add-comment`, state);
+      history.push(`/profile`);
     } catch (err) {
       console.error(err.response.data);
     }
@@ -77,6 +71,8 @@ function ContentForum() {
     }
     fetchComments();
   }, [contentType, contentId]);
+
+  console.log(state);
   return (
     <div>
       <nav>
@@ -122,22 +118,24 @@ function ContentForum() {
       <section className="newComment">
         <form>
           <label htmlFor="title">Titulo: </label>
-          <Editor
-            editorState={state.title}
-            toolbarClassName="toolbarClassName"
-            wrapperClassName="wrapperClassName"
-            editorClassName="editorClassName"
+          <input
+            id="title"
+            value={state.title}
+            type="text"
             onChange={handleChange}
+            name="title"
           />
           <label htmlFor="comment">Comentario: </label>
-          <Editor
-            editorState={state.comment}
-            toolbarClassName="toolbarClassName"
-            wrapperClassName="wrapperClassName"
-            editorClassName="editorClassName"
+          <textarea
+            value={state.comment}
+            id="comment"
+            type="text"
             onChange={handleChange}
+            name="comment"
           />
-          ;<button onSubmit={handleSubmit}>Publicar</button>
+          <button type="submit" onClick={handleSubmit}>
+            Publicar
+          </button>
         </form>
       </section>
     </div>

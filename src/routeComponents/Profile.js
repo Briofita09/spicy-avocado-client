@@ -121,6 +121,10 @@ function Profile() {
             <h3>Comentarios feitos: </h3>
 
             <p>{commentsState.userComments}</p>
+
+            <Link to="/profile/userComments">
+              <button>Exibir</button>
+            </Link>
           </div>
 
           <button type="submit" onClick={handleSubmit}>
