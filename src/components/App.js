@@ -67,7 +67,11 @@ function App() {
             component="/profile/comment-edition-page"
           />
           <ProtectedRoute exact path="/profile" component={Profile} />
-          <ProtectedRoute exact path="/watchlist" component={Watchlist} />
+          <ProtectedRoute
+            exact
+            path="/:contentType/watchlist"
+            component={Watchlist}
+          />
           <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>

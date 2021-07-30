@@ -24,7 +24,6 @@ function Signup(props) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    // history.push("/auth/login");
 
     try {
       const response = await api.post("/signup", state);
