@@ -11,7 +11,10 @@ import ContentForum from "../routeComponents/ContentForum";
 import ContentDescription from "../routeComponents/ContentDescription";
 import Profile from "../routeComponents/Profile";
 import Watchlist from "../routeComponents/Watchlist";
+import GenrePage from "../routeComponents/GenrePage";
 import UserComments from "../routeComponents/UserListofComments";
+
+
 
 function App() {
   return (
@@ -35,6 +38,13 @@ function App() {
             path="/:contentType/:contentId/contentDescription"
             component={ContentDescription}
           />
+
+          <ProtectedRoute
+            exact
+            path="/:contentType/:genreId/genrePage"
+            component={GenrePage}
+          />
+
           <ProtectedRoute
             exact
             path="/:contentType/:contentId/contentComments"
