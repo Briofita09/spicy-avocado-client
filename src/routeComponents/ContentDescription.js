@@ -45,7 +45,6 @@ function ContentDescription() {
         const commentResponse = await api.get(
           `/${contentType}/${contentId}/contentComments`
         );
-        console.log(commentResponse);
         setCommentState({ comments: commentResponse.data });
       } catch (err) {
         console.error(err);
@@ -53,8 +52,6 @@ function ContentDescription() {
     }
     fetchMovie();
   }, []);
-
-  console.log(commentState.comments);
 
   return (
     <div>

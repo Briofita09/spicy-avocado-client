@@ -11,6 +11,7 @@ import ContentForum from "../routeComponents/ContentForum";
 import ContentDescription from "../routeComponents/ContentDescription";
 import Profile from "../routeComponents/Profile";
 import Watchlist from "../routeComponents/Watchlist";
+import UserComments from "../routeComponents/UserListofComments";
 
 function App() {
   return (
@@ -38,6 +39,11 @@ function App() {
             exact
             path="/:contentType/:contentId/contentComments"
             component={ContentForum}
+          />
+          <ProtectedRoute
+            exact
+            path="/profile/userComments"
+            component={UserComments}
           />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <ProtectedRoute exact path="/watchlist" component={Watchlist} />
