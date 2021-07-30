@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import api from "../apis/api";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
+import style from "../assets/styles/UserListComments.module.scss";
 
 import NavBar from "../components/NavBar";
 
 function UserComments() {
   const [state, setState] = useState([]);
-  const [commentState, setCommentState] = useState({});
+
+  const { contentType } = useParams();
 
   const history = useHistory();
 
@@ -16,10 +18,6 @@ function UserComments() {
         const response = await api.get("/profile/userComments");
 
         setState([...response.data]);
-
-        const commentResponse = await api.get("/profile/userComments");
-
-        setCommentState({ ...commentResponse.data });
       } catch (err) {
         console.error(err);
       }
@@ -28,20 +26,21 @@ function UserComments() {
   }, []);
   return (
     <div>
-      <NavBar />
+      <NavBar contentType={contentType} />
       <table>
         <tbody>
           {state.map((comment) => {
             return (
-              <div>
-                <tr>
-                  <td>{comment.title}</td>
-                  <td>{comment.comment}</td>
-                  <td>
+              <tr className={style.textAjusts}>
+                <div className={style.column}>
+                  <h3>{comment.title}</h3>
+                  <p>{comment.comment}</p>
+                </div>
+                <td>
+                  <div className={style.row}>
                     <Link>
                       <button type="button">Editar Comentario</button>
                     </Link>
-
                     <button
                       type="submit"
                       onClick={() => {
@@ -56,9 +55,9 @@ function UserComments() {
                     >
                       Deletar comentario
                     </button>
-                  </td>
-                </tr>
-              </div>
+                  </div>
+                </td>
+              </tr>
             );
           })}
         </tbody>

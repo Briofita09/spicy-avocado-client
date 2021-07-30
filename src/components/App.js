@@ -48,15 +48,27 @@ function App() {
             path="/:contentType/:contentId/contentComments"
             component={ContentForum}
           />
-          <ProtectedRoute exact path="/search" component={SearchPage} />
+          <ProtectedRoute
+            exact
+            path="/:contentType/search"
+            component={SearchPage}
+          />
 
           <ProtectedRoute
             exact
-            path="/profile/userComments"
+            path="/:contentType/profile/userComments"
             component={UserComments}
           />
-          <ProtectedRoute exact path="/profile" component={Profile} />
-          <ProtectedRoute exact path="/watchlist" component={Watchlist} />
+          <ProtectedRoute
+            exact
+            path="/:contentType/profile"
+            component={Profile}
+          />
+          <ProtectedRoute
+            exact
+            path="/:contentType/watchlist"
+            component={Watchlist}
+          />
           <Route path="/auth" component={AuthRouter} />
         </Switch>
       </AuthContextComponent>
