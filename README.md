@@ -1,6 +1,7 @@
 # Spicy Avocado
 
 The best place to know about movies and tv shows!
+[Server](https://github.com/alexandreatlima/spicy-avocado-server)
 
 <img src="./src/assets/images/logos/horizontal.svg" alt="Spicy Avocado's Logo" />
 
